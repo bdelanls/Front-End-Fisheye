@@ -1,50 +1,245 @@
-@import url("photographer.css");
+/* Style du site Front end Fisheye */
+/* Reset CSS */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
 
 body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+  line-height: 1;
 }
 
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* dm-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/dm-sans-v14-latin-regular.woff2") format("woff2");
+}
+/* dm-sans-700 (bold) - latin */
+@font-face {
+  font-display: swap;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/dm-sans-v14-latin-700.woff2") format("woff2");
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 1000px) {
+  main {
+    min-width: 1000px;
+  }
+}
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  max-width: 1440px;
+  padding: 0 5%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 1000px) {
+  header {
+    min-width: 1000px;
+  }
+}
+header .logo {
+  height: 50px;
+}
+header h1 {
+  color: #901C1C;
+  font-size: 2.25em;
 }
 
-h1 {
-    color: #901C1C;
-    margin-right: 100px;
+.photographers {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px 5%;
+  margin-top: 70px;
 }
 
-.logo {
-    height: 50px;
-    margin-left: 100px;
+.photographer {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: max-content;
+}
+.photographer__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+.photographer__identity--picture {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+  transition: all 200ms;
+}
+a:hover .photographer__identity--picture {
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.05);
+}
+.photographer__identity--name {
+  font-size: 2.25em;
+  line-height: 1.5em;
+  color: #D3573C;
+}
+.photographer__location {
+  font-size: 0.8125em;
+  line-height: 1.5em;
+  color: #901C1C;
+}
+.photographer__tagline {
+  font-size: 0.625em;
+  line-height: 1.5em;
+  color: #000000;
+}
+.photographer__price {
+  font-size: 0.5625em;
+  line-height: 1.5em;
+  color: #757575;
 }
 
-.photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+#contact_modal {
+  display: none;
 }
 
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.photograph-header {
+  background-color: #FAFAFA;
+  height: 300px;
+  margin: 0 100px;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+.contact_button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+.modal {
+  border-radius: 5px;
+  background-color: #DB8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+}
+
+.modal header {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal header img {
+  cursor: pointer;
+}
+
+.modal header h2 {
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form label {
+  color: #312E2E;
+  font-size: 36px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+
+form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
 }

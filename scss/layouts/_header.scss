@@ -1,0 +1,30 @@
+// header
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    max-width: 1440px;
+    padding: 0 5%;
+    margin: 0 auto;
+
+    @include tablet{
+        min-width: 1000px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    h1 {
+        color: #901C1C;
+        font-size: em(36);
+    }
+
+
+}
+
+
+

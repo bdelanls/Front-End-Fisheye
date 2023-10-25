@@ -1,0 +1,29 @@
+// Fonts
+$dm-sans: 'DM Sans', sans-serif;
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+
+// Colors
+$primary: #901C1C;
+$secondary: #D3573C;
+$grey: #525252;
+$light-grey: #FAFAFA;
+$white: #ffffff;
+$black: #000000;
+
+// base
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    @include tablet{
+        min-width: 1000px;
+    }
+}
