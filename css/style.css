@@ -79,7 +79,7 @@ body {
 main {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -87,6 +87,12 @@ main {
   main {
     min-width: 1000px;
   }
+}
+
+.error-message {
+  font-weight: 700;
+  color: #D3573C;
+  font-size: 1.125em;
 }
 
 header {
@@ -142,7 +148,7 @@ header h1 {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
   transition: all 200ms;
 }
-a:hover .photographer__identity--picture {
+a:hover .photographer__identity--picture, a:focus .photographer__identity--picture {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.5);
   filter: brightness(1.05);
 }

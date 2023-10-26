@@ -19,11 +19,17 @@ body {
 main {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     max-width: 1440px;
     margin: 0 auto;
 
     @include tablet{
         min-width: 1000px;
     }
+}
+
+.error-message{
+    font-weight: 700;
+    color:#D3573C;
+    font-size: em(18);
 }

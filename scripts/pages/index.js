@@ -1,5 +1,4 @@
-//import { photographerTemplate } from "../templates/photographers.js";
-
+import { photographerTemplate } from "/scripts/templates/photographer.js";
 
 
 
@@ -11,31 +10,38 @@ async function getPhotographers() {
 			throw new Error("Impossible de lire les données");
 		}
 		const photographers = await reponse.json();
+		console.log("photographers", photographers);
 		return photographers;
+
 	} catch (error) {
-		console.error("Erreur :", error);
+		showError(error.message);
 	}	
+}
+
+function showError(error) {
+	let main = document.querySelector("main");
+	let message = `<p class="error-message">${error}</p>`;
+	main.innerHTML = message;
 }
 
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographers");
-
-
+	let num = 0;
 	photographers.forEach( photographer => {
-		console.log(photographer);
-		/*
+		num++;
+		
 		const photographerModel = photographerTemplate(photographer);
-		const userCardDOM = photographerModel.getUserCardDOM();
+		const userCardDOM = photographerModel.getUserCardDOM(num);
+		console.log(userCardDOM);
 		photographersSection.appendChild(userCardDOM);
-		*/
+		
 	});
 }
 
 async function init() {
 	// Récupère les datas des photographes
 	const {photographers} = await getPhotographers();
-	console.log(photographers);
-	//displayData(photographers);
+	displayData(photographers);
 }
     
 init();
