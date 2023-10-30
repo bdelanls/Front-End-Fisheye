@@ -4,7 +4,7 @@
 .photographers{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: min-content 1fr min-content;
     gap: 70px 5%;
     margin-top: 70px;
 }
@@ -24,6 +24,10 @@
         align-items: center;
         text-decoration: none;
 
+        &:focus-visible{
+            outline: none;
+        }
+
         &--picture{
             width: 200px;
             height: 200px;
@@ -33,14 +37,19 @@
             transition: all 200ms;
 
             a:hover &, a:focus &{
-                box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.5);
-                filter: brightness(1.05);
+                box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.8);
+                filter: brightness(1.08);
             }
+            
         }
         &--name{
             font-size: em(36);
             line-height: 1.5em;
             color: $secondary;
+
+            a:hover &, a:focus &{
+                color: $black;
+            }
         }
     }
 

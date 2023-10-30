@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Fisheye - photographe </title>
+  </head>
+  <body>
+    <header>
+      <a href="/" tabindex="0">
+        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+      </a>
+    </header>
+    <main id="main">
+      <div class="photograph-header">
+        <div class="photograph-header__info">
+          <h1 class="photograph-header__info--name">Mimi Keel</h1>
+          <p class="photograph-header__info--location">London, UK</p>
+          <p class="photograph-header__info--tagline">Voir le beau dans le quotidien</p>
+        </div>
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <picture>
+          <img src="/assets/images/photographers/MimiKeel.jpg" alt="" class="photograph-header__picture">
+        </picture>
+      </div>
+      <div>
+        <label for="">Trier par</label>
+        <select name="" id="">
+          <option value="">Popularité</option>
+          <option value="">Date</option>
+          <option value="">Titre</option>
+        </select>
+      </div>
+      <section>
+        <article>
+
+        </article>
+      </section>
+      <div class="sticky-card">
+        <div class="stiky-card__like">
+          297 081
+        </div>
+        <div class="stiky-card__price">
+          300€ / jour
+        </div>
+      </div>
+    </main>
+    <div id="contact_modal">
+			<div class="modal">
+				<header>
+          <h2>Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" />
+        </header>
+				<form>
+					<div>
+						<label>Prénom</label>
+						<input />
+					</div>
+          <button class="contact_button">Envoyer</button>
+				</form>
+			</div>
+		</div>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>

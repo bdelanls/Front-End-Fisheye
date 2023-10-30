@@ -4,73 +4,56 @@
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
-}
-
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
+    width: 100%;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
+    padding: 55px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+
+    &__info{
+        width: 35%;
+
+        &--name{
+            font-size: em(64);
+            color: $secondary;
+        }
+        &--location {
+            font-size: em(24);
+            line-height: 1.5em;
+            color: $primary;
+        }
+        &--tagline {
+            font-size: em(18);
+            line-height: 1.5em;
+            color: $grey
+        }
+    }
+
+    picture{
+        width: 35%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__picture{
+        width: 200px;
+        border-radius: 50%;
+    }
+    
 }
 
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
 
-.modal header img {
-    cursor: pointer;
-}
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
+.sticky-card{
+    padding: 22px 27px;
+    background-color: #DB8876;
+    width: 375px;
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
-
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+    justify-content: space-between;
+    font-size: em(24);
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    bottom: 0;
+    right: 35px;
 }

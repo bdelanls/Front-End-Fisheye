@@ -4,12 +4,12 @@ export function photographerTemplate(data) {
 
 	const picture = `/assets/images/photographers/${portrait}`;
 
-	function getUserCardDOM(num) {
+	function getUserCardDOM() {
 		const article = document.createElement( "article" );
 		article.classList = "photographer";
 
 		let articleHTML = `
-			<a href="#" class="photographer__identity" role="link" tabindex="${num}">
+			<a href="/photographer.html?id=${id}" class="photographer__identity" role="link" tabindex="0">
 				<img src="${picture}" alt="" class="photographer__identity--picture">
 				<h2 class="photographer__identity--name">${name}</h2>
 			</a>

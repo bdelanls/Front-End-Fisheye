@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "docify.commentService.autoTranslationService": "French",
+    "docify.commentService.programmingLanguage": "javascript",
+    "docify.translateService.targetLanguage": "French"
 }
