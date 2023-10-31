@@ -17,32 +17,114 @@
       <div class="photograph-header">
         <div class="photograph-header__info">
           <h1 class="photograph-header__info--name">Mimi Keel</h1>
-          <p class="photograph-header__info--location">London, UK</p>
+          <h2 class="photograph-header__info--location">London, UK</h2>
           <p class="photograph-header__info--tagline">Voir le beau dans le quotidien</p>
         </div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         <picture>
           <img src="/assets/images/photographers/MimiKeel.jpg" alt="" class="photograph-header__picture">
+
         </picture>
       </div>
-      <div>
+      <div class="sort-menu">
         <label for="">Trier par</label>
-        <select name="" id="">
-          <option value="">Popularité</option>
-          <option value="">Date</option>
-          <option value="">Titre</option>
-        </select>
+        <button class="sort-menu--selected" tabindex="0">Popularité</button>
+        <ul class="sort-menu--items" >
+          <li data-value="popularity" tabindex="0" class="chevron">Popularité</li>
+          <li data-value="date" tabindex="0">Date</li>
+          <li data-value="title" tabindex="0">Titre</li>
+        </ul>
       </div>
-      <section>
-        <article>
-
+      <section class="section-photo-cards">
+        <article class="photo-card">
+          <a href="#" class="photo-card__link">
+            <img src="assets/images/photos/Mimi/Animals_Rainbow.jpg" alt="" class="photo-card__media">
+          </a>
+          <div class="photo-card__legend">
+            <h3 class="photo-card__legend--title">Arc-en-ciel</h3>
+            <div class="photo-card__legend--like">
+              <a href="#">
+                11
+                <svg class="photo-card__legend--svg">
+                <use xlink:href="assets/images/icons/icons.svg#heart"></use>
+              </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="photo-card">
+          <a href="#" class="photo-card__link">
+            <video src="assets/images/photos/Mimi/Animals_Wild_Horses_in_the_mountains.mp4" alt="" class="photo-card__media"></video>
+          </a>
+          <div class="photo-card__legend">
+            <h3 class="photo-card__legend--title">Arc-en-ciel</h3>
+            <div class="photo-card__legend--like">
+              <a href="#">
+                11
+                <svg class="photo-card__legend--svg">
+                <use xlink:href="assets/images/icons/icons.svg#heart"></use>
+              </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="photo-card">
+          <a href="#" class="photo-card__link">
+            <img src="assets/images/photos/Mimi/Animals_Rainbow.jpg" alt="" class="photo-card__media">
+          </a>
+          <div class="photo-card__legend">
+            <h3 class="photo-card__legend--title">Arc-en-ciel</h3>
+            <div class="photo-card__legend--like">
+              <a href="#">
+                11
+                <svg class="photo-card__legend--svg">
+                <use xlink:href="assets/images/icons/icons.svg#heart"></use>
+              </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="photo-card">
+          <a href="#" class="photo-card__link">
+            <img src="assets/images/photos/Mimi/Animals_Rainbow.jpg" alt="" class="photo-card__media">
+          </a>
+          <div class="photo-card__legend">
+            <h3 class="photo-card__legend--title">Arc-en-ciel</h3>
+            <div class="photo-card__legend--like">
+              <a href="#">
+                11
+                <svg class="photo-card__legend--svg">
+                <use xlink:href="assets/images/icons/icons.svg#heart"></use>
+              </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="photo-card">
+          <a href="#" class="photo-card__link">
+            <img src="assets/images/photos/Mimi/Animals_Rainbow.jpg" alt="" class="photo-card__media">
+          </a>
+          <div class="photo-card__legend">
+            <h3 class="photo-card__legend--title">Arc-en-ciel</h3>
+            <div class="photo-card__legend--like">
+              <a href="#">
+                11
+                <svg class="photo-card__legend--svg">
+                <use xlink:href="assets/images/icons/icons.svg#heart"></use>
+              </svg>
+              </a>
+            </div>
+          </div>
         </article>
       </section>
       <div class="sticky-card">
-        <div class="stiky-card__like">
+        <div class="stikcy-card__like">
           297 081
+          <svg class="sticky-card__like--svg">
+            <use xlink:href="assets/images/icons/icons.svg#heart"></use>
+          </svg>
         </div>
-        <div class="stiky-card__price">
+        <div class="sticky-card__price">
           300€ / jour
         </div>
       </div>

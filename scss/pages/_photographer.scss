@@ -17,11 +17,13 @@
         &--name{
             font-size: em(64);
             color: $secondary;
+            margin-bottom: 15px;
         }
         &--location {
             font-size: em(24);
             line-height: 1.5em;
             color: $primary;
+            margin-bottom: 15px;
         }
         &--tagline {
             font-size: em(18);
@@ -43,6 +45,79 @@
     
 }
 
+.section-photo-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+    gap: 40px 95px;
+    transition: all 1s;
+
+    // @include tablet {
+    //     gap: 40px 15px;
+    // }
+}
+
+.photo-card {
+    width: max-content;
+
+    &__link {
+        width: 350px;
+        height: 300px;
+        display: flex;
+        border-radius: 5px;
+
+        &:hover, &:focus {
+            filter: brightness(1.2);
+        }
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    &__media {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    &__legend {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 12px;
+
+        &--title {
+            font-size: em(24);
+            color: $primary;
+
+        }
+
+        &--like {
+            font-size: em(24);
+            color: $primary;
+
+            a {
+                text-decoration: none;
+                color: $primary;
+            }
+            a:focus-visible {
+                outline: none;
+            }
+        }
+
+        &--svg {
+            width: 0.8em;
+            height: 0.8em;
+            color: $primary;
+
+            a:hover &, a:focus &{
+                color: $black;
+            }
+            
+        }
+    }
+}
 
 
 .sticky-card{
@@ -56,4 +131,10 @@
     position: absolute;
     bottom: 0;
     right: 35px;
+
+    &__like--svg {
+        color: $black;
+        width: 0.8em;
+        height: 0.8em;
+    }
 }

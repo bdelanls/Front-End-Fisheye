@@ -80,14 +80,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
-  padding: 0 5%;
-}
-@media only screen and (max-width: 1000px) {
-  main {
-    min-width: 1000px;
-  }
+  padding: 0 100px;
 }
 
 .error-message {
@@ -98,7 +93,6 @@ main {
 
 .contact_button {
   font-size: 1.25em;
-  font-weight: 700;
   color: #ffffff;
   padding: 11px;
   width: 170px;
@@ -171,20 +165,103 @@ form input {
   border-radius: 5px;
 }
 
+.sort-menu {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 270px;
+  margin: 15px 0 35px 0;
+}
+.sort-menu label {
+  font-size: 1.125em;
+  font-weight: 700;
+}
+.sort-menu--selected {
+  width: 170px;
+  height: 60px;
+  padding: 0 20px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.125em;
+  background-color: #901C1C;
+  border: 1px solid #901C1C;
+  color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.sort-menu--selected::after {
+  content: "";
+  background-image: url("/assets/images/icons/chevron-down-solid.svg");
+  width: 1em;
+  height: 1em;
+}
+.sort-menu svg {
+  color: #ffffff;
+  width: 1em;
+  height: 1em;
+}
+.sort-menu--items {
+  border: 1px solid #901C1C;
+  border-radius: 5px;
+  background-color: #901C1C;
+  display: none;
+  width: 170px;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  z-index: 100;
+}
+.sort-menu--items li {
+  width: 100%;
+  height: 60px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.125em;
+  padding: 0 20px;
+  background-color: #901C1C;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.sort-menu--items li::before {
+  content: "";
+  border-bottom: 1px solid #ffffff;
+  width: 150px;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+.sort-menu--items li:last-child::before {
+  content: none;
+}
+.sort-menu--items li:hover, .sort-menu--items li:focus {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+.sort-menu--items li.chevron::after {
+  content: "";
+  background-image: url("/assets/images/icons/chevron-up-solid.svg");
+  width: 1em;
+  height: 1em;
+}
+
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 120px;
-  max-width: 1440px;
-  padding: 0 5%;
+  width: 1440px;
+  padding: 0 100px;
   margin: 0 auto;
-}
-@media only screen and (max-width: 1000px) {
-  header {
-    min-width: 1000px;
-  }
 }
 header .logo {
   height: 50px;
@@ -274,11 +351,13 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
 .photograph-header__info--name {
   font-size: 4em;
   color: #D3573C;
+  margin-bottom: 15px;
 }
 .photograph-header__info--location {
   font-size: 1.5em;
   line-height: 1.5em;
   color: #901C1C;
+  margin-bottom: 15px;
 }
 .photograph-header__info--tagline {
   font-size: 1.125em;
@@ -295,6 +374,64 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   border-radius: 50%;
 }
 
+.section-photo-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px 95px;
+  transition: all 1s;
+}
+
+.photo-card {
+  width: max-content;
+}
+.photo-card__link {
+  width: 350px;
+  height: 300px;
+  display: flex;
+  border-radius: 5px;
+}
+.photo-card__link:hover, .photo-card__link:focus {
+  filter: brightness(1.2);
+}
+.photo-card__link:focus-visible {
+  outline: none;
+}
+.photo-card__media {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.photo-card__legend {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 12px;
+}
+.photo-card__legend--title {
+  font-size: 1.5em;
+  color: #901C1C;
+}
+.photo-card__legend--like {
+  font-size: 1.5em;
+  color: #901C1C;
+}
+.photo-card__legend--like a {
+  text-decoration: none;
+  color: #901C1C;
+}
+.photo-card__legend--like a:focus-visible {
+  outline: none;
+}
+.photo-card__legend--svg {
+  width: 0.8em;
+  height: 0.8em;
+  color: #901C1C;
+}
+a:hover .photo-card__legend--svg, a:focus .photo-card__legend--svg {
+  color: #000000;
+}
+
 .sticky-card {
   padding: 22px 27px;
   background-color: #DB8876;
@@ -306,4 +443,9 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   position: absolute;
   bottom: 0;
   right: 35px;
+}
+.sticky-card__like--svg {
+  color: #000000;
+  width: 0.8em;
+  height: 0.8em;
 }

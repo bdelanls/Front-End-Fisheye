@@ -1,6 +1,7 @@
-//Mettre le code JavaScript lié à la page photographer.html
+import { sortMenu } from "../utils/sortMenu.js";
 
-
+// initialise le menu de tri
+sortMenu();
 
 
 export function initPhotographerPage() {

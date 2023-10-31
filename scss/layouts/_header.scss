@@ -6,17 +6,18 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 120px;
-    max-width: 1440px;
-    padding: 0 5%;
+    width: 1440px;
+    padding: 0 100px;
     margin: 0 auto;
 
     a:focus-visible{
         //outline: none;
     }
 
-    @include tablet{
-        min-width: 1000px;
-    }
+    // @include tablet{
+    //     min-width: 1200px;
+    //     padding: 0 60px;
+    // }
 
     .logo {
         height: 50px;
