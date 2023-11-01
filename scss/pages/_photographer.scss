@@ -45,7 +45,7 @@
     
 }
 
-.section-photo-cards {
+.section-media-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -58,7 +58,7 @@
     // }
 }
 
-.photo-card {
+.media-card {
     width: max-content;
 
     &__link {
@@ -128,7 +128,7 @@
     justify-content: space-between;
     font-size: em(24);
     border-radius: 5px 5px 0 0;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 35px;
 

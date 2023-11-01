@@ -22,7 +22,7 @@ export function sortMenu(){
 	});
 
 	menuItems.addEventListener("mouseleave", function() {
-		//menuItems.style.display = "none";
+		closeMenu();
 	});
 
 	function toggleMenu() {

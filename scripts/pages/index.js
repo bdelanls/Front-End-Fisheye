@@ -21,7 +21,10 @@ async function getPhotographers() {
 			throw new Error("Erreur lors de l'analyse des données JSON");
 		}
 
+		console.log("photographers =", photographers);
 		return photographers;
+		
+
 	} catch (error) {
 		showError(error.message);
 		return null; 
