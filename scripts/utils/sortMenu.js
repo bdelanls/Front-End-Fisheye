@@ -9,10 +9,12 @@ export function sortMenu(){
 	let textValue = "Popularité";
 	let topMenuItems = 0;
 
+	// écouteur sur le bouton
 	selectedItem.addEventListener("click", function() {
 		toggleMenu();
 	});
 
+	// écouteur sur le menu
 	menuItems.addEventListener("click", function(event) {
 		if (event.target.tagName === "LI") {
 			dataValue = event.target.getAttribute("data-value");
@@ -21,6 +23,7 @@ export function sortMenu(){
 		}
 	});
 
+	// écouteur en dehors du menu
 	menuItems.addEventListener("mouseleave", function() {
 		closeMenu();
 	});
@@ -43,22 +46,21 @@ export function sortMenu(){
 			topMenuItems = 0;
 		}
 
-	
-
 		menuItems.style.cssText = `display: block; top: ${topMenuItems}px;`;
 		selectedItem.style.display = "none";
 	}
 	
+	// Ferme le menu
 	function closeMenu() {
 		menuItems.style.cssText = "display: none";
 		selectedItem.style.removeProperty("display");
 	}
 
+	
+	// met à jour le texte du bouton
 	function selectItem(dataValue, textValue) {
-		// met à jour le texte du bouton
 		selectedItem.textContent = textValue;
 		toggleMenu();
-		console.log(dataValue);
 	}
 
 }

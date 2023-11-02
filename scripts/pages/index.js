@@ -32,7 +32,7 @@ function showError(error) {
 /**
 * Stockage des données dans le sessionStorage
 */
-async function dataStorage() {
+export async function dataStorage() {
 
 	try {
 		// Récupérer les données stockées dans le sessionStorage
@@ -79,9 +79,9 @@ export async function initHomePage() {
 	await dataStorage();
 
 	// Récupération des données de sessionStorage
-	const photographers = JSON.parse(sessionStorage.getItem("photographers"));
+	const photographersData = JSON.parse(sessionStorage.getItem("photographers"));
 
 	//console.log("data index =", photographers);
   
-	displayData(photographers);
+	displayData(photographersData);
 }
