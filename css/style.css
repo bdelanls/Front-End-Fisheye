@@ -96,6 +96,7 @@ main {
   font-size: 1.25em;
   color: #ffffff;
   padding: 11px;
+  margin: 0 20px;
   width: 170px;
   height: 70px;
   border: none;
@@ -103,6 +104,7 @@ main {
   border-radius: 5px;
   cursor: pointer;
   transition: all 300ms;
+  white-space: nowrap;
 }
 .contact_button:hover, .contact_button:focus {
   filter: brightness(1.3);
@@ -337,7 +339,7 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   display: none;
 }
 
-.photograph-header {
+.photographer-header {
   background-color: #FAFAFA;
   width: 100%;
   border-radius: 5px;
@@ -346,31 +348,31 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   justify-content: space-between;
   align-items: center;
 }
-.photograph-header__info {
-  width: 35%;
+.photographer-header__info {
+  width: 100%;
 }
-.photograph-header__info--name {
+.photographer-header__info--name {
   font-size: 4em;
   color: #D3573C;
   margin-bottom: 15px;
 }
-.photograph-header__info--location {
+.photographer-header__info--location {
   font-size: 1.5em;
   line-height: 1.5em;
   color: #901C1C;
   margin-bottom: 15px;
 }
-.photograph-header__info--tagline {
+.photographer-header__info--tagline {
   font-size: 1.125em;
   line-height: 1.5em;
   color: #525252;
 }
-.photograph-header picture {
-  width: 35%;
+.photographer-header picture {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
-.photograph-header__picture {
+.photographer-header__picture {
   width: 200px;
   border-radius: 50%;
 }

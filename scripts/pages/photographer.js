@@ -1,4 +1,7 @@
 import { sortMenu } from "../utils/sortMenu.js";
+import { photographerTemplate } from "/scripts/templates/photographer.js";
+
+
 
 /*
 
@@ -14,19 +17,39 @@ import { sortMenu } from "../utils/sortMenu.js";
 // initialise le menu de tri
 //sortMenu();
 
-async function getPhotographerByID() {
-	const reponse = await fetch("/data/photographers.json");
-	const photographer = await reponse.json();
-	return photographers;
+
+async function displayPhotographer(photographer) {
+	const photographerHeaderSection = document.querySelector(".photographer-header");
+		
+	const photographerModel = photographerTemplate(photographer);
+	
+	const photographerHeader = photographerModel.getPhotographerHeader();
+	
+	photographerHeaderSection.innerHTML = photographerHeader;
+		
 }
+
 
 export async function initPhotographerPage() {
 
+	const photographers = JSON.parse(sessionStorage.getItem("photographers"));
+	const media = JSON.parse(sessionStorage.getItem("media"));
+
+
 	const currentURL = window.location.href;
 	const urlParams = new URL(currentURL);
-	const photographerID = urlParams.searchParams.get("id");
+	const photographerID = parseInt(urlParams.searchParams.get("id"));
 
-	console.log(photographerID);
+	const photographerToFind = photographers.find(photographe => photographe.id === photographerID);
+
+	if (photographerToFind) {
+		console.log(photographerToFind);
+	} else {
+		// photographe non trouvé, retour sur la page d'accueil
+		window.location.href = "index.html";
+	}
+
+	displayPhotographer(photographerToFind);
 
 
 	// const result = await getPhotographer();

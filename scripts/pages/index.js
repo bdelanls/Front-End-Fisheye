@@ -1,42 +1,64 @@
 import { photographerTemplate } from "/scripts/templates/photographer.js";
 
 
-async function getPhotographers() {
-	try {
-		const response = await fetch("/data/photographers.json");
-		if (!response.ok) {
-			throw new Error("Impossible de lire les données");
-		}
-		const text = await response.text();
+/**
+* Lecture du fichier JSON et retourne les données
+*/
+async function getJson() {
+	return fetch("/data/photographers.json")
+		.then((result) => (result.ok ? result.json() : null))
+		.then((data) => {
+			if (!data) {
+				throw new Error("Impossible de lire les données ou données manquantes.");
+			}
+			return data;
+		});
 
-		// Vérifie si la réponse est vide ou nulle
-		if (!text.trim()) {
-			throw new Error("Fichier JSON vide ou non trouvé");
-		}
-
-		const photographers = JSON.parse(text);
-
-		// Vérifie si les données JSON sont valides
-		if (!photographers || typeof photographers !== "object") {
-			throw new Error("Erreur lors de l'analyse des données JSON");
-		}
-
-		console.log("photographers =", photographers);
-		return photographers;
-		
-
-	} catch (error) {
-		showError(error.message);
-		return null; 
-	}
 }
-  
 
+
+/**
+* Affiche une erreur à l'utilisateur.
+* @param error 
+*/
 function showError(error) {
 	const main = document.querySelector("main");
 	let message = `<p class="error-message">${error}</p>`;
 	main.innerHTML = message;
 }
+
+
+
+/**
+* Stockage des données dans le sessionStorage
+*/
+async function dataStorage() {
+
+	try {
+		// Récupérer les données stockées dans le sessionStorage
+		const storedPhotographers = sessionStorage.getItem("photographers");
+		const storedMedia = sessionStorage.getItem("media");
+	
+		// Si les données ne sont pas stockées, on les charge depuis le JSON
+		if (!storedPhotographers && !storedMedia) {
+			const data = await getJson();
+			const { photographers, media } = data;
+	
+			// Stocker les données dans le sessionStorage
+			sessionStorage.setItem("photographers", JSON.stringify(photographers));
+			sessionStorage.setItem("media", JSON.stringify(media));
+ 
+			console.log("Json chargé");
+		} else {
+			console.log("Session chargée");
+		}
+	} catch (error) {
+		showError(error.message);
+	}
+}
+
+
+
 
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographers");
@@ -52,11 +74,14 @@ async function displayData(photographers) {
 
   
 export async function initHomePage() {
-	// Récupère les datas des photographes
-	const result = await getPhotographers();
+
+	// Lecture du fichier JSON si besoin
+	await dataStorage();
+
+	// Récupération des données de sessionStorage
+	const photographers = JSON.parse(sessionStorage.getItem("photographers"));
+
+	//console.log("data index =", photographers);
   
-	if (result !== null) {
-		const { photographers } = result;
-		displayData(photographers);
-	}
+	displayData(photographers);
 }
