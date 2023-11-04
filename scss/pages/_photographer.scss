@@ -59,7 +59,7 @@
 }
 
 .media-card {
-    width: max-content;
+    width: 350px;
 
     &__link {
         width: 350px;
@@ -86,16 +86,24 @@
         justify-content: space-between;
         width: 100%;
         margin-top: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
         &--title {
             font-size: em(24);
             color: $primary;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            line-height: 120%;
 
         }
 
         &--like {
             font-size: em(24);
             color: $primary;
+            line-height: 120%;
 
             a {
                 text-decoration: none;

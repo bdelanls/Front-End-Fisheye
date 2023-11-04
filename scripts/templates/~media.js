@@ -27,7 +27,8 @@ export function mediaTemplate(data, firstName) {
           </div>`;
 
 		article.innerHTML = photoCardHTML;
-		return (article);
+
+		return article;
 
 	}
 

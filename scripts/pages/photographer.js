@@ -1,43 +1,60 @@
 import { dataStorage } from "/scripts/pages/index.js";
-//import { sortMenu } from "/scripts/utils/sortMenu.js";
+import { sortMenu } from "/scripts/utils/sortMenu.js";
 import { photographerTemplate } from "/scripts/templates/photographer.js";
-import { mediaTemplate } from "/scripts/templates/media.js";
+import { MediaFactory } from "/scripts/components/mediaFactory.js";
+import { SortMedia } from "/scripts/components/sortMedia.js";
 
 
 
-/*
-
-1 - récupérer l'ID du photographe
-2 - Lire le fichier JSON et récupérer les données du photographe
-3 - Envoyer les données au template
-4 - Lire le fichier JSON et récupérer les données média liées au photographe
-5 - Envoyer les données au template media
-
-*/
+const mediaList = new SortMedia();
 
 
-// initialise le menu de tri
-//sortMenu();
+/**
+ * Transforme une liste de médias en objets médias et configure la liste
+ *
+ * @param {Array} medias - La liste des médias à transformer en objets médias
+ * @param {string} photographerFirstName - Le prénom du photographe lié à ces médias
+ */
+async function objectMedia(medias, photographerFirstName) {
 
+	const list = [];
 
-async function displayMedia(medias, photographerFirstName) {
-
-	// faire le tri
-	// vérifier si c'est une photo ou une vidéo
-	// proposer un loader ?
-	
-
-	const mediaSection = document.querySelector(".section-media-cards");
 	medias.forEach( media => {
+
+		// Photo ou vidéo ?
+		let type;
+		"image" in media ? type = "photo": type = "video";
+
+		const factory = new MediaFactory();
+		const mediaChild = factory.createMedia(type, media, photographerFirstName);
 		
-		const mediaModel = mediaTemplate(media, photographerFirstName);
-		const userCardDOM = mediaModel.getPhotoCard();
-		mediaSection.appendChild(userCardDOM);
-		
+		list.push(mediaChild);
 	});
+
+	mediaList.configure(list);
+	mediaList.getListMedia();
 }
 
 
+
+
+/**
+ * Affiche la liste des médias dans la section des médias
+ * 
+ * @param {Array} mediaList - La liste des médias à afficher
+ */
+export function displayMedia(mediaList) {
+	const mediaSection = document.querySelector(".section-media-cards");
+	mediaSection.innerHTML = "";
+
+	for(let i=0; i < mediaList.length; i++) {
+		const mediaCard = mediaList[i].getPhotoCard();
+		mediaSection.appendChild(mediaCard);
+	}
+}
+
+
+// Récupère le prénom du photographe
 async function getFirstName(photographer) {
 	const photographerName = photographer.name;
 	return photographerName.split(" ")[0];
@@ -75,6 +92,9 @@ async function getID(currentURL) {
 }
 
 
+/**
+ * Initialise la page du photographe en récupérant les données nécessaires
+ */
 export async function initPhotographerPage() {
 
 	// Lecture du fichier JSON si besoin
@@ -93,15 +113,18 @@ export async function initPhotographerPage() {
 	// Affiche le header
 	displayPhotographer(photographerToFind);
 
-	// Récupère le prénom du photographe pour le dossier photos
+	// Récupère le prénom du photographe pour le dossier des photos
 	const photographerFirstName = await getFirstName(photographerToFind);
 
-	// Récupère les dédia du photographe
+	// Récupère les dédia du photographe et fabrique les objets et la mediaList
 	const photographerMedia = mediaData.filter(media => media.photographerId === photographerID);
-	displayMedia(photographerMedia, photographerFirstName);
+	await objectMedia(photographerMedia, photographerFirstName);
 
-	// const result = await getPhotographer();
-	console.log(photographerFirstName);
+	// initialise le menu de tri
+	sortMenu(mediaList); 
+
+
 }
+
 
 

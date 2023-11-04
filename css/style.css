@@ -82,7 +82,7 @@ main {
   flex-direction: column;
   justify-content: center;
   width: 1440px;
-  margin: 0 auto;
+  margin: 0 auto 100px auto;
   padding: 0 100px;
 }
 
@@ -386,7 +386,7 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
 }
 
 .media-card {
-  width: max-content;
+  width: 350px;
 }
 .media-card__link {
   width: 350px;
@@ -410,14 +410,22 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   justify-content: space-between;
   width: 100%;
   margin-top: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .media-card__legend--title {
   font-size: 1.5em;
   color: #901C1C;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 120%;
 }
 .media-card__legend--like {
   font-size: 1.5em;
   color: #901C1C;
+  line-height: 120%;
 }
 .media-card__legend--like a {
   text-decoration: none;

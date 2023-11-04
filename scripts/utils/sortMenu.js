@@ -1,5 +1,7 @@
+//import { medialist as displayAfterSort } from "/scripts/pages/photographer.js";
 
-export function sortMenu(){
+
+export function sortMenu(mediaList){
 
 	const selectedItem = document.querySelector(".sort-menu--selected");
 	const menuItems = document.querySelector(".sort-menu--items");
@@ -57,10 +59,12 @@ export function sortMenu(){
 	}
 
 	
-	// met à jour le texte du bouton
+	// met à jour le texte du bouton et l'affichage des médias
 	function selectItem(dataValue, textValue) {
 		selectedItem.textContent = textValue;
 		toggleMenu();
+
+		mediaList.getListMedia(dataValue);
 	}
 
 }

@@ -22,13 +22,9 @@ main {
     flex-direction: column;
     justify-content: center;
     width: 1440px;
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
     padding: 0 100px;
 
-    // @include tablet{
-    //     min-width: 1200px;
-    //     padding: 0 60px;
-    // }
 }
 
 .error-message{
