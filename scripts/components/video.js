@@ -7,10 +7,13 @@ export class Video extends Media {
 		this.firstName = photographerFirstName;
 	}
 
-	getPhotoCard() {
+	
+	
+	getCard() {
 
 		const article = document.createElement( "article" );
 		article.classList = "media-card";
+		article.id = `id-${this.id}`;
 
 		let videoCardHTML = `
           <a href="#" class="media-card__link">

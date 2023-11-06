@@ -2,6 +2,7 @@ import { dataStorage } from "/scripts/pages/index.js";
 import { sortMenu } from "/scripts/utils/sortMenu.js";
 import { photographerTemplate } from "/scripts/templates/photographer.js";
 import { MediaFactory } from "/scripts/components/mediaFactory.js";
+import { Photo } from "/scripts/components/photo.js";
 import { SortMedia } from "/scripts/components/sortMedia.js";
 
 
@@ -29,10 +30,31 @@ async function objectMedia(medias, photographerFirstName) {
 		const mediaChild = factory.createMedia(type, media, photographerFirstName);
 		
 		list.push(mediaChild);
+
+
+
 	});
 
 	mediaList.configure(list);
+	
 	mediaList.getListMedia();
+
+	//console.log("mediaList", mediaList.medialist[0]);
+
+	// for(let i = 0; i< mediaList.length; i++) {
+	// 	console.log("media");
+	// 	//mediaList[i].loadImage();
+	// };
+
+	// mediaList.mediaList.forEach((media) => {
+	// 	console.log("media");
+	// 	media.loadImage();
+	// });
+	for(let elem of mediaList.getMediaList()) {
+		if (elem instanceof Photo) {
+			elem.loadImage();
+		}
+	}
 }
 
 
@@ -48,7 +70,7 @@ export function displayMedia(mediaList) {
 	mediaSection.innerHTML = "";
 
 	for(let i=0; i < mediaList.length; i++) {
-		const mediaCard = mediaList[i].getPhotoCard();
+		const mediaCard = mediaList[i].getCard();
 		mediaSection.appendChild(mediaCard);
 	}
 }

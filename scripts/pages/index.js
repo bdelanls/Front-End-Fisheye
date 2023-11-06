@@ -19,7 +19,6 @@ async function getJson() {
 
 /**
 * Affiche une erreur à l'utilisateur.
-* @param error 
 */
 function showError(error) {
 	const main = document.querySelector("main");
@@ -72,7 +71,11 @@ async function displayData(photographers) {
 }
 
 
-  
+/**
+ * Initialise la page d'accueil en récupérant les données des photographes 
+ * depuis le stockage de session et les affiche.
+ *
+ */  
 export async function initHomePage() {
 
 	// Lecture du fichier JSON si besoin
@@ -81,7 +84,5 @@ export async function initHomePage() {
 	// Récupération des données de sessionStorage
 	const photographersData = JSON.parse(sessionStorage.getItem("photographers"));
 
-	//console.log("data index =", photographers);
-  
 	displayData(photographersData);
 }

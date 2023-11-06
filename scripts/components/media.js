@@ -8,5 +8,4 @@ export class Media {
 		this.price = data.price;
 	}
 
-	
 }

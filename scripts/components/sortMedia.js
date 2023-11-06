@@ -11,6 +11,10 @@ export class SortMedia {
 		this.mediaList = data;
 	}
 
+	getMediaList(){
+		return this.mediaList;
+	}
+
 	// Trie la liste de médias en fonction du critère spécifié
 	getListMedia(tri = "popularity") {
 
