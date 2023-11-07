@@ -4,7 +4,7 @@ export class StickyCard {
 		this.price = price;
 	}
 
-	likesModify(ope) {
+	updateLikes(ope) {
 
 		const stickyCardDOM = document.querySelector(".sticky-card__like--number");
 

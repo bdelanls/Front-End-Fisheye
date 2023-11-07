@@ -16,7 +16,7 @@ export const stickyCard = new StickyCard();
  * @param {Array} medias - La liste des médias à transformer en objets médias
  * @param {string} photographerFirstName - Le prénom du photographe lié à ces médias
  */
-async function makeCardMedia(medias, photographerFirstName) {
+async function createCardMedia(medias, photographerFirstName) {
 
 	const list = [];
 
@@ -134,7 +134,7 @@ export async function initPhotographerPage() {
 
 	// Récupère les dédia du photographe et fabrique les objets et la mediaList
 	const photographerMedia = mediaData.filter(media => media.photographerId === photographerID);
-	await makeCardMedia(photographerMedia, photographerFirstName);
+	await createCardMedia(photographerMedia, photographerFirstName);
 
 	// Initialise et affiche la Sticky Card
 	await displayStickyCard(photographerMedia, photographerToFind.price);

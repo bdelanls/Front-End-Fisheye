@@ -30,11 +30,11 @@ export class Media {
 			if (this.likeActive) {
 				this.likes++;
 				likeButton.classList.add("btn__like--on");
-				stickyCard.likesModify("add");
+				stickyCard.updateLikes("add");
 			} else {
 				this.likes--;
 				likeButton.classList.remove("btn__like--on");
-				stickyCard.likesModify("sub");
+				stickyCard.updateLikes("sub");
 			}
 
 			likeNumber.innerHTML = this.likes;
