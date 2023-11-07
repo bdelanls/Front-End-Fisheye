@@ -12,6 +12,8 @@ export class Video extends Media {
 		const article = document.createElement( "article" );
 		article.classList = "media-card";
 
+		const likeActive = this.likeActive ? " btn__like--on" : "";
+
 		let videoCardHTML = `
         <a href="#" class="media-card__link">
             <video src="/assets/images/photos/${this.firstName}/${this.video}" alt="${this.title}" class="media-card__media"></video>
@@ -21,7 +23,7 @@ export class Video extends Media {
             <!-- bouton like -->
             <div class="media-card__legend--like">
 				<div class="number__like">${this.likes}</div>
-            	<button class="btn__like" title="J'aime"><span>J'AIME</span></button>
+            	<button class="btn__like${likeActive}" title="J'aime"><span>J'AIME</span></button>
         	</div>
         </div>`;
 
