@@ -114,6 +114,54 @@ main {
   outline: none;
 }
 
+.btn__like {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  background-color: inherit;
+}
+.btn__like span {
+  margin-left: -100px;
+}
+.btn__like::after, .btn__like::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin: 3px 0 0 3px;
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+.btn__like::after {
+  background-image: url("/assets/images/icons/heart-solid.svg");
+  opacity: 0;
+}
+.btn__like::before {
+  background-image: url("/assets/images/icons/heart-regular.svg");
+  opacity: 1;
+}
+.btn__like:hover::after {
+  opacity: 0.7;
+  cursor: pointer;
+}
+.btn__like:hover::before {
+  opacity: 0;
+}
+.btn__like:active::after {
+  transform: scale(1.2);
+  opacity: 1;
+}
+.btn__like--on::after {
+  background-image: url("/assets/images/icons/heart-solid.svg");
+  opacity: 1;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #DB8876;
@@ -426,21 +474,12 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   font-size: 1.5em;
   color: #901C1C;
   line-height: 120%;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
-.media-card__legend--like a {
-  text-decoration: none;
-  color: #901C1C;
-}
-.media-card__legend--like a:focus-visible {
-  outline: none;
-}
-.media-card__legend--svg {
-  width: 0.8em;
-  height: 0.8em;
-  color: #901C1C;
-}
-a:hover .media-card__legend--svg, a:focus .media-card__legend--svg {
-  color: #000000;
+.media-card__legend--like .btn__like {
+  margin-left: 5px;
 }
 
 .sticky-card {
@@ -454,6 +493,13 @@ a:hover .media-card__legend--svg, a:focus .media-card__legend--svg {
   position: fixed;
   bottom: 0;
   right: 35px;
+}
+.sticky-card__like {
+  display: flex;
+  align-items: center;
+}
+.sticky-card__like--number {
+  margin-right: 10px;
 }
 .sticky-card__like--svg {
   color: #000000;

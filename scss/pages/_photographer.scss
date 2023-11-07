@@ -104,25 +104,13 @@
             font-size: em(24);
             color: $primary;
             line-height: 120%;
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
 
-            a {
-                text-decoration: none;
-                color: $primary;
+            .btn__like {
+                margin-left: 5px;
             }
-            a:focus-visible {
-                outline: none;
-            }
-        }
-
-        &--svg {
-            width: 0.8em;
-            height: 0.8em;
-            color: $primary;
-
-            a:hover &, a:focus &{
-                color: $black;
-            }
-            
         }
     }
 }
@@ -140,9 +128,20 @@
     bottom: 0;
     right: 35px;
 
-    &__like--svg {
-        color: $black;
-        width: 0.8em;
-        height: 0.8em;
+    &__like{
+        display: flex;
+        align-items: center;
+
+        &--number {
+            margin-right: 10px;
+        }
+
+        &--svg {
+            color: $black;
+            width: 0.8em;
+            height: 0.8em;
+        }
     }
+
+    
 }

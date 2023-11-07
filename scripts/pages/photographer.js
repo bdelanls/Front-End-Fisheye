@@ -2,12 +2,13 @@ import { dataStorage } from "/scripts/pages/index.js";
 import { sortMenu } from "/scripts/utils/sortMenu.js";
 import { photographerTemplate } from "/scripts/templates/photographer.js";
 import { MediaFactory } from "/scripts/components/mediaFactory.js";
+import { StickyCard } from "/scripts/components/stickyCard.js";
 import { SortMedia } from "/scripts/components/sortMedia.js";
 
 
 
-const mediaList = new SortMedia();
-
+export const mediaList = new SortMedia();
+export const stickyCard = new StickyCard();
 
 /**
  * Transforme une liste de médias en objets médias et configure la liste
@@ -15,7 +16,7 @@ const mediaList = new SortMedia();
  * @param {Array} medias - La liste des médias à transformer en objets médias
  * @param {string} photographerFirstName - Le prénom du photographe lié à ces médias
  */
-async function objectMedia(medias, photographerFirstName) {
+async function makeCardMedia(medias, photographerFirstName) {
 
 	const list = [];
 
@@ -35,6 +36,21 @@ async function objectMedia(medias, photographerFirstName) {
 	mediaList.getListMedia();
 }
 
+
+/**
+ * Affiche la carte "Sticky" avec le prix et le nombre total de likes.
+ */
+async function displayStickyCard(medias, price) {
+
+	let totalLikes = 0;
+
+	medias.forEach( media => {
+		totalLikes += media.likes;
+	});
+	stickyCard.likes = totalLikes;
+	stickyCard.price = price;
+	stickyCard.getStickyCard();
+}
 
 
 
@@ -118,7 +134,10 @@ export async function initPhotographerPage() {
 
 	// Récupère les dédia du photographe et fabrique les objets et la mediaList
 	const photographerMedia = mediaData.filter(media => media.photographerId === photographerID);
-	await objectMedia(photographerMedia, photographerFirstName);
+	await makeCardMedia(photographerMedia, photographerFirstName);
+
+	// Initialise et affiche la Sticky Card
+	await displayStickyCard(photographerMedia, photographerToFind.price);
 
 	// initialise le menu de tri
 	sortMenu(mediaList); 

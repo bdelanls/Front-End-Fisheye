@@ -1,3 +1,5 @@
+
+
 export function photographerTemplate(data) {
 	
 	const { name, id, city, country, tagline, price, portrait } = data;
@@ -21,13 +23,13 @@ export function photographerTemplate(data) {
 			<p class="photographer__location">${city}, ${country}</p>
 			<p class="photographer__tagline">${tagline}</p>
 			<p class="photographer__price">${price}€/jour</p>`;
+		
 		article.innerHTML = articleHTML;
 		return (article);
 		
 	}
 
 	function getPhotographerHeader() {
-
 
 		let photographerHeaderHTML = `
 		<div class="photographer-header__info">
@@ -44,9 +46,6 @@ export function photographerTemplate(data) {
 
 	}
 
-
-
 	return { name, picture, getUserCardDOM, getPhotographerHeader };
-	
 	
 }
