@@ -2,9 +2,8 @@ import { Media } from "/scripts/components/media.js";
 
 export class Video extends Media {
 	constructor (data, photographerFirstName) {
-		super (data);
+		super (data, photographerFirstName);
 		this.video = data.video;
-		this.firstName = photographerFirstName;
 	}
 
 	getPhotoCard() {
@@ -15,9 +14,9 @@ export class Video extends Media {
 		const likeActive = this.likeActive ? " btn__like--on" : "";
 
 		let videoCardHTML = `
-        <a href="#" class="media-card__link">
+        <div class="media-card__link" tabindex="0">
             <video src="/assets/images/photos/${this.firstName}/${this.video}" alt="${this.title}" class="media-card__media"></video>
-        </a>
+        </div>
         <div class="media-card__legend">
         	<h3 class="media-card__legend--title">${this.title}</h3>
             <!-- bouton like -->

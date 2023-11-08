@@ -216,6 +216,85 @@ form input {
   border-radius: 5px;
 }
 
+#lightbox-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+}
+
+.lightbox {
+  min-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+.lightbox__figure {
+  overflow: hidden;
+}
+.lightbox__figure--picture {
+  max-width: 1050px;
+  max-height: 80vh;
+  border-radius: 5px;
+}
+.lightbox__figure--legend {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #901C1C;
+  line-height: 120%;
+  margin-top: 15px;
+}
+.lightbox__btn {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+}
+.lightbox__btn .svg {
+  width: 50px;
+  height: 50px;
+  color: #901C1C;
+}
+.lightbox__btn .svg:hover {
+  color: #D3573C;
+}
+.lightbox__btn--close {
+  position: absolute;
+  top: 0;
+  right: 100px;
+}
+.lightbox__btn--close:hover {
+  cursor: pointer;
+}
+.lightbox__btn--back {
+  transition: all 100ms;
+}
+.lightbox__btn--back:hover {
+  cursor: pointer;
+}
+.lightbox__btn--back:active {
+  transform: translateX(-10px);
+}
+.lightbox__btn--next {
+  transition: all 100ms;
+}
+.lightbox__btn--next:hover {
+  cursor: pointer;
+  color: #D3573C;
+}
+.lightbox__btn--next:active {
+  transform: translateX(10px);
+}
+
 .sort-menu {
   position: relative;
   height: 60px;
@@ -368,17 +447,17 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   color: #000000;
 }
 .photographer__location {
-  font-size: 0.8125em;
+  font-size: 1em;
   line-height: 1.5em;
   color: #901C1C;
 }
 .photographer__tagline {
-  font-size: 0.625em;
+  font-size: 0.8125em;
   line-height: 1.5em;
   color: #000000;
 }
 .photographer__price {
-  font-size: 0.5625em;
+  font-size: 0.8125em;
   line-height: 1.5em;
   color: #757575;
 }
@@ -444,6 +523,7 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
 }
 .media-card__link:hover, .media-card__link:focus {
   filter: brightness(1.2);
+  cursor: pointer;
 }
 .media-card__link:focus-visible {
   outline: none;
@@ -491,8 +571,10 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   font-size: 1.5em;
   border-radius: 5px 5px 0 0;
   position: fixed;
-  bottom: 0;
+  bottom: -100px;
   right: 35px;
+  transition: bottom 0.5s ease-in-out;
+  animation: slideSticky 0.5s ease-in-out forwards;
 }
 .sticky-card__like {
   display: flex;
@@ -505,4 +587,13 @@ a:hover .photographer__identity--name, a:focus .photographer__identity--name {
   color: #000000;
   width: 0.8em;
   height: 0.8em;
+}
+
+@keyframes slideSticky {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 0;
+  }
 }

@@ -2,9 +2,8 @@ import { Media } from "./media.js";
 
 export class Photo extends Media {
 	constructor (data, photographerFirstName) {
-		super (data);
+		super (data, photographerFirstName);
 		this.image = data.image;
-		this.firstName = photographerFirstName;
 	}
 
 	getPhotoCard() {
@@ -15,9 +14,9 @@ export class Photo extends Media {
 		const likeActive = this.likeActive ? " btn__like--on" : "";
 
 		let photoCardHTML = `
-        <a href="#" class="media-card__link">
+        <div class="media-card__link" tabindex="0">
         	<img src="/assets/images/thumbnails/${this.firstName}/${this.image}" alt="${this.title}" class="media-card__media">
-        </a>
+        </div>
         <div class="media-card__legend">
         	<h3 class="media-card__legend--title">${this.title}</h3>
             <!-- bouton like -->

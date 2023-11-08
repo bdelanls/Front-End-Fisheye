@@ -54,17 +54,17 @@
     }
 
     &__location {
-        font-size: em(13);
+        font-size: em(16); //em(13)
         line-height: 1.5em;
         color: $primary;
     }
     &__tagline {
-        font-size: em(10);
+        font-size: em(13); //em(10)
         line-height: 1.5em;
         color: $black;
     }
     &__price {
-        font-size: em(9);
+        font-size: em(13); //em(9)
         line-height: 1.5em;
         color: #757575
     }

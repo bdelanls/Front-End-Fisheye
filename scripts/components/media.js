@@ -1,13 +1,15 @@
+import { displayLightbox } from "/scripts/utils/lightbox.js";
 import { stickyCard } from "/scripts/pages/photographer.js";
 
 export class Media {
-	constructor (data) {
+	constructor (data, photographerFirstName) {
 		this.id = data.id;
 		this.photographerId = data.photographerId;
 		this.title = data.title;
 		this.likes = data.likes;
 		this.date = data.date;
 		this.price = data.price;
+		this.firstName = photographerFirstName;
 
 		this.likeActive = false;
 
@@ -20,6 +22,7 @@ export class Media {
 	
 		article.innerHTML = htmlContent;
 	
+		// likes
 		const likeButton = article.querySelector(".btn__like");
 		const likeNumber = article.querySelector(".number__like");
 
@@ -39,6 +42,12 @@ export class Media {
 
 			likeNumber.innerHTML = this.likes;
 
+		});
+
+		// lightbox
+		const lightboxButton = article.querySelector(".media-card__link");
+		lightboxButton.addEventListener("click", () => {
+			displayLightbox(this.id, this.firstName);
 		});
 	
 		return article;
