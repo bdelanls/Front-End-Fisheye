@@ -103,10 +103,22 @@ function updateDisplayLightbox(media, firstName) {
 
 	if (media.image) {
 		mediaHTML = `
-		<div class="imgLoader">Chargement</div>
+		<div class="img-loader">Chargement</div>
 		<img src="/assets/images/photos/${firstName}/${media.image}" alt="" class="lightbox__figure--picture">
         <figcaption class="lightbox__figure--legend">${media.title}</figcaption>
 		`;
+		
+		// Loader sur l'image
+		let image = new Image();
+		image.src = `/assets/images/photos/${firstName}/${media.image}`;
+		image.onload = () => {
+			let imgLoader = document.querySelector(".img-loader");
+			imgLoader.style.display = "none";
+		};
+		image.onerror = () => {
+			console.log("Problème lors du chargement de l'image");
+		};
+
 
 	} else {
 		mediaHTML = `
@@ -117,4 +129,3 @@ function updateDisplayLightbox(media, firstName) {
 
 	figureDOM.innerHTML = mediaHTML;
 }
-
