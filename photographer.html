@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="/" tabindex="0">
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
-      </a>
-    </header>
-    <main id="main">
-       <!-- Photograph header -->
-       <div class="photographer-header">
-      </div>
-      <!-- Sort menu -->
-      <div class="sort-menu">
-        <label for="">Trier par</label>
-        <button class="sort-menu--selected" tabindex="0">Popularité</button>
-        <ul class="sort-menu--items" >
-          <li data-value="popularity" tabindex="0" class="chevron">Popularité</li>
-          <li data-value="date" tabindex="0">Date</li>
-          <li data-value="title" tabindex="0">Titre</li>
-        </ul>
-      </div>
-        <!-- List media -->
-        <section class="section-media-cards">
-        </section>
-    </main>
-    <!-- Sticky card -->
-    <div class="sticky-card"></div>
-    <!-- Lightbox -->
-    <div id="lightbox-modal"></div>
-    <!-- Contact form modal -->
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script type="module" src="/scripts/main.js"></script>
-  </body>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="/" tabindex="0">
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
+    </a>
+  </header>
+  <main id="main">
+    <!-- Photograph header -->
+    <div class="photographer-header">
+    </div>
+    <!-- Sort menu -->
+    <div class="sort-menu">
+      <label for="">Trier par</label>
+      <button class="sort-menu--selected" tabindex="0">Popularité</button>
+      <ul class="sort-menu--items">
+        <li data-value="popularity" tabindex="0" class="chevron">Popularité</li>
+        <li data-value="date" tabindex="0">Date</li>
+        <li data-value="title" tabindex="0">Titre</li>
+      </ul>
+    </div>
+    <!-- List media -->
+    <section class="section-media-cards">
+    </section>
+  </main>
+  <!-- Sticky card -->
+  <div class="sticky-card"></div>
+  <!-- Lightbox -->
+  <div id="lightbox-modal"></div>
+  <!-- Contact form modal -->
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="/scripts/main.js"></script>
+</body>
 </html>

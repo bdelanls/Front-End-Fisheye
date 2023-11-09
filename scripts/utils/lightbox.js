@@ -1,5 +1,5 @@
 import { mediaList } from "/scripts/pages/photographer.js";
-
+import { applyBlurFilterToBackground, removeBlurFilterFromBackground } from "/scripts/utils/utils.js";
 
 /**
  * Affiche la modale lightbox avec le média correspondant à l'ID fourni.
@@ -16,6 +16,9 @@ export function displayLightbox(id, firstName) {
 	// Affichage de la lightbox
 	const lightboxModal = document.getElementById("lightbox-modal");
 	lightboxModal.style.display = "flex";
+
+	// Flou à l'arrière plan
+	applyBlurFilterToBackground();
 
 
 	// Contenu HTML de la lightbox
@@ -53,6 +56,9 @@ export function displayLightbox(id, firstName) {
 	closeBtn.addEventListener("click", () => {
 		lightboxModal.innerHTML = "";
 		lightboxModal.removeAttribute("style");
+		
+		// Supprime le flou à l'arrère plan
+		removeBlurFilterFromBackground();
 	});
 
 	/**
@@ -108,7 +114,7 @@ function updateDisplayLightbox(media, firstName) {
         <figcaption class="lightbox__figure--legend">${media.title}</figcaption>
 		`;
 		
-		// Loader sur l'image
+		// Loader - attente du chargement de l'image
 		let image = new Image();
 		image.src = `/assets/images/photos/${firstName}/${media.image}`;
 		image.onload = () => {

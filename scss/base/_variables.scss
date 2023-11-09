@@ -27,8 +27,16 @@ main {
 
 }
 
-.error-message{
+.error-message {
     font-weight: 700;
     color:#D3573C;
     font-size: em(18);
+}
+
+.content {
+    position: relative;
+}
+
+.blur {
+    filter: blur(5px);
 }
