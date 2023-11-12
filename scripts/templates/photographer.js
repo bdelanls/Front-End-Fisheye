@@ -1,5 +1,4 @@
 
-
 export function photographerTemplate(data) {
 	
 	const { name, id, city, country, tagline, price, portrait } = data;
@@ -37,7 +36,7 @@ export function photographerTemplate(data) {
           <h2 class="photographer-header__info--location">${city}, ${country}</h2>
           <p class="photographer-header__info--tagline">${tagline}</p>
         </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
         <picture>
           <img src="${picture}" alt="${name}" class="photographer-header__picture">
         </picture>`;

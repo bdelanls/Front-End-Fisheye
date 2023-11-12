@@ -1,0 +1,137 @@
+
+#contact-modal {
+    @extend #lightbox-modal;
+}
+
+.contact {
+    width: 670px;
+    background-color: #DB8876;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 35px;
+    box-shadow: -5px 10px 30px 0 rgba(0, 0, 0, 0.25);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+        &--title {
+            font-size: em(64);
+            font-weight: 400;
+            color: $black;
+            line-height: 110%;
+        }
+
+        &--btn-close {
+            @extend .lightbox__btn;
+            width: 50px;
+            height: 70px;
+
+            & .svg {
+                color: $white;
+                width: 70px;
+                height: 70px;
+
+                &:hover {
+                    color: $primary;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        &--label, &--input {
+            font-family: $dm-sans;
+            font-size: em(36);
+            font-weight: 300;
+            color: #312E2E;
+            margin-bottom: 5px;
+        }
+
+        &--input {
+            color: $black;
+            margin-bottom: 15px;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+
+            &:focus-visible {
+                outline: 3px solid $primary;
+            }
+        }
+
+        
+
+
+
+        &--submit {
+            @extend .contact_button;
+            margin: 20px 0 0 0;
+        }
+
+    }
+
+
+
+    
+}
+
+// .modal {
+//     border-radius: 5px;
+//     background-color: #DB8876;
+//     width: 50%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding: 35px;
+//     margin: auto;
+// }
+
+// .modal header {
+//     justify-content: space-between;
+//     width: 100%;
+// }
+
+// .modal header img {
+//     cursor: pointer;
+// }
+
+// .modal header h2 {
+//     font-size: 64px;
+//     font-weight: normal;
+//     text-align: center;
+// }
+
+
+// form {
+//     display: flex;
+//     width: 100%;
+//     flex-direction: column;
+//     align-items: flex-start;
+// }
+
+// form label {
+//     color: #312E2E;
+//     font-size: 36px;
+// }
+
+// form div {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     align-items: self-start;
+//     margin-bottom: 26px;
+// }
+
+// form input {
+//     width: 100%;
+//     height: 68px;
+//     border: none;
+//     border-radius: 5px;
+// }

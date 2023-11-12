@@ -4,6 +4,7 @@ import { photographerTemplate } from "/scripts/templates/photographer.js";
 import { MediaFactory } from "/scripts/components/mediaFactory.js";
 import { StickyCard } from "/scripts/components/stickyCard.js";
 import { SortMedia } from "/scripts/components/sortMedia.js";
+import { displayContactForm } from "/scripts/utils/contactForm.js";
 
 
 
@@ -85,6 +86,12 @@ async function displayPhotographer(photographer) {
 	const photographerModel = photographerTemplate(photographer);
 	const photographerHeader = photographerModel.getPhotographerHeader();
 	photographerHeaderSection.innerHTML = photographerHeader;
+
+	// bouton de contact
+	const contactButton = document.querySelector(".contact_button");
+	contactButton.addEventListener("click", () => {
+		displayContactForm(photographer.name);
+	});
 		
 }
 

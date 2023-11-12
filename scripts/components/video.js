@@ -26,10 +26,6 @@ export class Video extends Media {
         	</div>
         </div>`;
 
-		// article.innerHTML = videoCardHTML;
-
-		// return article;
-
 		return this.getMediaCard(videoCardHTML);
 
 	}

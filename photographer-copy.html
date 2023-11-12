@@ -8,7 +8,7 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
+    <header class="header-top">
       <a href="/" tabindex="0">
         <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
       </a>
@@ -152,18 +152,26 @@
 
     </div>
 
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+    <div id="contact-modal">
+			<div class="contact">
+				<header class="contact__header">
+          <h2 class="contact__header--title">Contactez-moi<br>Lorem</h2>
+          <button class="contact__header--btn-close">
+            <svg class="svg">
+                <use xlink:href="/assets/images/icons/icons.svg#xmark"></use>
+            </svg>
+          </button>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
+				<form name="contact" action="photographer.html" method="get" onsubmit="return validate()" class="contact__form">
+          <label class="contact__form--label">Prénom</label>
+          <input class="contact__form--input" type="text" id="firstname" name="firstname" minlength="2" />
+          <label class="contact__form--label">Nom</label>
+          <input class="contact__form--input" type="text" id="lastname" name="lastname" minlength="2" />
+          <label class="contact__form--label">Email</label>
+          <input class="contact__form--input" type="email" id="email" name="email" />
+          <label class="contact__form--label">Votre message</label>
+          <textarea class="contact__form--input" name="message" id="message" rows="3"></textarea>
+          <input class="contact__form--submit" type="submit" value="Envoyer" />
 				</form>
 			</div>
 		</div>

@@ -26,10 +26,6 @@ export class Photo extends Media {
         	</div>
         </div>`;
 
-		// article.innerHTML = photoCardHTML;
-
-		// return article;
-
 		return this.getMediaCard(photoCardHTML);
 
 	}
