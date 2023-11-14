@@ -108,7 +108,7 @@ main {
   filter: blur(5px);
 }
 
-.contact_button, .contact__form--submit {
+.contact_button, .contact__msg--btn, .contact__form--submit {
   font-size: 1.25em;
   color: #ffffff;
   padding: 11px;
@@ -122,11 +122,11 @@ main {
   transition: all 300ms;
   white-space: nowrap;
 }
-.contact_button:hover, .contact__form--submit:hover, .contact_button:focus, .contact__form--submit:focus {
+.contact_button:hover, .contact__msg--btn:hover, .contact__form--submit:hover, .contact_button:focus, .contact__msg--btn:focus, .contact__form--submit:focus {
   filter: brightness(1.3);
   border: none;
 }
-.contact_button:focus-visible, .contact__form--submit:focus-visible {
+.contact_button:focus-visible, .contact__msg--btn:focus-visible, .contact__form--submit:focus-visible {
   outline: none;
 }
 
@@ -231,19 +231,19 @@ main {
   line-height: 120%;
   margin-top: 15px;
 }
-.lightbox__btn, .contact__header--btn-close {
+.lightbox__btn, .contact__header--btn {
   width: 50px;
   height: 50px;
   padding: 0;
   border: none;
   background-color: inherit;
 }
-.lightbox__btn .svg, .contact__header--btn-close .svg {
+.lightbox__btn .svg, .contact__header--btn .svg {
   width: 50px;
   height: 50px;
   color: #901C1C;
 }
-.lightbox__btn .svg:hover, .contact__header--btn-close .svg:hover {
+.lightbox__btn .svg:hover, .contact__header--btn .svg:hover {
   color: #D3573C;
 }
 .lightbox__btn--close {
@@ -316,16 +316,16 @@ main {
   color: #000000;
   line-height: 110%;
 }
-.contact__header--btn-close {
+.contact__header--btn {
   width: 50px;
   height: 70px;
 }
-.contact__header--btn-close .svg {
+.contact__header--btn .svg {
   color: #ffffff;
   width: 70px;
   height: 70px;
 }
-.contact__header--btn-close .svg:hover {
+.contact__header--btn .svg:hover {
   color: #901C1C;
   cursor: pointer;
 }
@@ -338,11 +338,24 @@ main {
   font-size: 2.25em;
   font-weight: 300;
   color: #312E2E;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+}
+.contact__form--data {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  position: relative;
+}
+.contact__form--data::after {
+  content: attr(data-error);
+  color: #901C1C;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 1em;
 }
 .contact__form--input {
   color: #000000;
-  margin-bottom: 15px;
   padding: 8px;
   border: none;
   border-radius: 5px;
@@ -352,6 +365,13 @@ main {
 }
 .contact__form--submit {
   margin: 20px 0 0 0;
+}
+.contact__msg--title {
+  font-size: 2em;
+  line-height: 130%;
+}
+.contact__msg--btn {
+  margin: 40px 0 0 0;
 }
 
 .sort-menu {
