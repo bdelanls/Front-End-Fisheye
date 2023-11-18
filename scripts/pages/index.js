@@ -5,7 +5,7 @@ import { photographerTemplate } from "../../scripts/templates/photographer.js";
 * Lecture du fichier JSON et retourne les données
 */
 async function getJson() {
-	return fetch("../../data/photographers.json")
+	return fetch("../data/photographers.json")
 		.then((result) => (result.ok ? result.json() : null))
 		.then((data) => {
 			if (!data) {
