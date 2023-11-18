@@ -1,5 +1,5 @@
-import { displayLightbox } from "/scripts/utils/lightbox.js";
-import { stickyCard } from "/scripts/pages/photographer.js";
+import { displayLightbox } from "../utils/lightbox.js";
+import { stickyCard } from "../pages/photographer.js";
 
 export class Media {
 	constructor (data, photographerFirstName) {

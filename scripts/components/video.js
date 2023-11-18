@@ -1,4 +1,4 @@
-import { Media } from "/scripts/components/media.js";
+import { Media } from "../components/media.js";
 
 export class Video extends Media {
 	constructor (data, photographerFirstName) {

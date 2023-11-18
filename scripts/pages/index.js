@@ -1,4 +1,4 @@
-import { photographerTemplate } from "/scripts/templates/photographer.js";
+import { photographerTemplate } from "../templates/photographer.js";
 
 
 /**

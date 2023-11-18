@@ -1,5 +1,5 @@
-import { Photo } from "/scripts/components/photo.js";
-import { Video } from "/scripts/components/video.js";
+import { Photo } from "../components/photo.js";
+import { Video } from "../components/video.js";
 
 
 /**

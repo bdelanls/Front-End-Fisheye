@@ -1,4 +1,4 @@
-import { displayMedia } from "/scripts/pages/photographer.js";
+import { displayMedia } from "../pages/photographer.js";
 
 
 /**
