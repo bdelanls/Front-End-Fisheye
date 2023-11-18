@@ -1,10 +1,10 @@
-import { dataStorage } from "../pages/index.js";
-import { sortMenu } from "../utils/sortMenu.js";
-import { photographerTemplate } from "../templates/photographer.js";
-import { MediaFactory } from "../components/mediaFactory.js";
-import { StickyCard } from "../components/stickyCard.js";
-import { SortMedia } from "../components/sortMedia.js";
-import { displayContactForm } from "../utils/contactForm.js";
+import { dataStorage } from "./index.js";
+import { sortMenu } from "./../utils/sortMenu.js";
+import { photographerTemplate } from "./../templates/photographer.js";
+import { MediaFactory } from "./../components/mediaFactory.js";
+import { StickyCard } from "./../components/stickyCard.js";
+import { SortMedia } from "./../components/sortMedia.js";
+import { displayContactForm } from "./../utils/contactForm.js";
 
 
 
