@@ -155,11 +155,11 @@ main {
   opacity: 0;
 }
 .btn__like::after {
-  background-image: url("/assets/images/icons/heart-solid.svg");
+  background-image: url("../assets/images/icons/heart-solid.svg");
   opacity: 0;
 }
 .btn__like::before {
-  background-image: url("/assets/images/icons/heart-regular.svg");
+  background-image: url("../assets/images/icons/heart-regular.svg");
   opacity: 1;
 }
 .btn__like:hover::after {
@@ -174,7 +174,7 @@ main {
   opacity: 1;
 }
 .btn__like--on::after {
-  background-image: url("/assets/images/icons/heart-solid.svg");
+  background-image: url("../assets/images/icons/heart-solid.svg");
   opacity: 1;
 }
 
@@ -404,7 +404,7 @@ main {
 }
 .sort-menu--selected::after {
   content: "";
-  background-image: url("/assets/images/icons/chevron-down-solid.svg");
+  background-image: url("../assets/images/icons/chevron-down-solid.svg");
   width: 1em;
   height: 1em;
 }
@@ -460,7 +460,7 @@ main {
 }
 .sort-menu--items li.chevron::after {
   content: "";
-  background-image: url("/assets/images/icons/chevron-up-solid.svg");
+  background-image: url("../assets/images/icons/chevron-up-solid.svg");
   width: 1em;
   height: 1em;
 }
