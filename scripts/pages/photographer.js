@@ -15,9 +15,16 @@ export const stickyCard = new StickyCard();
  * Transforme une liste de médias en objets médias et configure la liste
  *
  * @param {Array} medias - La liste des médias à transformer en objets médias
- * @param {string} photographerFirstName - Le prénom du photographe lié à ces médias
+ * @param {string} photographerName - Le nom du photographe lié à ces médias
  */
-async function createCardMedia(medias, photographerFirstName) {
+async function createCardMedia(medias, photographerName) {
+
+	// Récupère le prénom du photographe pour le dossier des photos
+	const photographerFirstName = photographerName.split(" ")[0];
+
+	// Ajout de ARIA LABEL sur la section
+	const mediaSection = document.querySelector(".section-media-cards");
+	mediaSection.setAttribute("ariaLabel", "Galerie de " + photographerName);
 
 	const list = [];
 
@@ -70,12 +77,6 @@ export function displayMedia(mediaList) {
 	}
 }
 
-
-// Récupère le prénom du photographe
-async function getFirstName(photographer) {
-	const photographerName = photographer.name;
-	return photographerName.split(" ")[0];
-}
 
 /**
 * Affiche les informations sur le photographe dans photographer-header
@@ -136,12 +137,9 @@ export async function initPhotographerPage() {
 	// Affiche le header
 	displayPhotographer(photographerToFind);
 
-	// Récupère le prénom du photographe pour le dossier des photos
-	const photographerFirstName = await getFirstName(photographerToFind);
-
 	// Récupère les dédia du photographe et fabrique les objets et la mediaList
 	const photographerMedia = mediaData.filter(media => media.photographerId === photographerID);
-	await createCardMedia(photographerMedia, photographerFirstName);
+	await createCardMedia(photographerMedia, photographerToFind.name);
 
 	// Initialise et affiche la Sticky Card
 	await displayStickyCard(photographerMedia, photographerToFind.price);

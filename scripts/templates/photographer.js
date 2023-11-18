@@ -15,8 +15,8 @@ export function photographerTemplate(data) {
 		article.classList = "photographer";
 
 		let articleHTML = `
-			<a href="/photographer.html?id=${id}" class="photographer__identity" role="link" tabindex="0">
-				<img src="${picture}" alt="" class="photographer__identity--picture">
+			<a href="/photographer.html?id=${id}" class="photographer__identity">
+				<img src="${picture}" alt="Photo de ${name}" class="photographer__identity--picture">
 				<h2 class="photographer__identity--name">${name}</h2>
 			</a>
 			<p class="photographer__location">${city}, ${country}</p>
@@ -36,9 +36,9 @@ export function photographerTemplate(data) {
           <h2 class="photographer-header__info--location">${city}, ${country}</h2>
           <p class="photographer-header__info--tagline">${tagline}</p>
         </div>
-        <button class="contact_button">Contactez-moi</button>
+        <button class="contact_button" aria-label="Contactez ${name}">Contactez-moi</button>
         <picture>
-          <img src="${picture}" alt="${name}" class="photographer-header__picture">
+          <img src="${picture}" alt="Portrait de ${name}" class="photographer-header__picture">
         </picture>`;
 
 		return (photographerHeaderHTML);

@@ -27,7 +27,7 @@ export class StickyCard {
 		let stickyCardHTML = `
 		<div class="sticky-card__like">
         	<div class="sticky-card__like--number">${this.likes}</div>
-			<svg class="sticky-card__like--svg">
+			<svg class="sticky-card__like--svg" aria-hidden="true">
 				<use xlink:href="assets/images/icons/icons.svg#heart"></use>
 			</svg>
 		</div>

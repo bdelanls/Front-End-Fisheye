@@ -91,6 +91,10 @@
             &:hover, &:focus {
               cursor: pointer;
               filter: brightness(1.2);
+              
+            }
+            &:focus-visible {
+              outline: none;
             }
 
             &.chevron::after {

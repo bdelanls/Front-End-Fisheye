@@ -48,9 +48,9 @@ export async function dataStorage() {
 			sessionStorage.setItem("photographers", JSON.stringify(photographers));
 			sessionStorage.setItem("media", JSON.stringify(media));
  
-			console.log("Json chargé");
+			// console.log("Json chargé");
 		} else {
-			console.log("Session chargée");
+			// console.log("Session chargée");
 		}
 	} catch (error) {
 		showError(error.message);

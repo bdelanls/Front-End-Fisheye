@@ -49,6 +49,12 @@ export class Media {
 		lightboxButton.addEventListener("click", () => {
 			displayLightbox(this.id, this.firstName);
 		});
+
+		lightboxButton.addEventListener("keydown", (event) => {
+			if(event.key === "Enter") {
+				displayLightbox(this.id, this.firstName);
+			}
+		});
 	
 		return article;
 	}

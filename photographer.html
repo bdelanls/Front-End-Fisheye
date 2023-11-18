@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -10,10 +10,11 @@
 </head>
 
 <body>
-  <header class="header-top">
-    <a href="/" tabindex="0">
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+  <header class="header" role="banner">
+    <a href="/" aria-label="Retour à la page d'accueil de Fisheye">
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo" />
     </a>
+    <h1>Nos photographes</h1>
   </header>
   <main id="main">
     <!-- Photograph header -->
@@ -21,12 +22,12 @@
     </div>
     <!-- Sort menu -->
     <div class="sort-menu">
-      <label for="">Trier par</label>
-      <button class="sort-menu--selected" tabindex="0">Popularité</button>
-      <ul class="sort-menu--items">
-        <li data-value="popularity" tabindex="0" class="chevron">Popularité</li>
-        <li data-value="date" tabindex="0">Date</li>
-        <li data-value="title" tabindex="0">Titre</li>
+      <div id="sortLabel">Trier par</div>
+      <button id="sortButton" class="sort-menu--selected" aria-haspopup="true" aria-labelledby="sortLabel sortButton" aria-expanded="false">Popularité</button>
+      <ul class="sort-menu--items" role="listbox" aria-labelledby="sortLabel">
+        <li data-value="popularity" role="option" aria-selected="true" tabindex="0" class="chevron">Popularité</li>
+        <li data-value="date" role="option" aria-selected="false" tabindex="0">Date</li>
+        <li data-value="title" role="option" aria-selected="false" tabindex="0">Titre</li>
       </ul>
     </div>
     <!-- List media -->
@@ -34,11 +35,11 @@
     </section>
   </main>
   <!-- Sticky card -->
-  <div class="sticky-card"></div>
+  <div class="sticky-card" aria-label="Résumé des likes et tarif journalier"></div>
   <!-- Lightbox -->
-  <div id="lightbox-modal"></div>
+  <div id="lightbox-modal" role="dialog" aria-hidden="true" aria-label="Galerie d'images"></div>
   <!-- Contact form modal -->
-  <div id="contact-modal">
+  <div id="contact-modal" role="dialog" aria-hidden="true" aria-label="Formulaire de contact">
   </div>
   <script type="module" src="/scripts/main.js"></script>
 </body>

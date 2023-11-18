@@ -1,6 +1,5 @@
 // header
-
-header.header-top {
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,15 +8,6 @@ header.header-top {
     width: 1440px;
     padding: 0 100px;
     margin: 0 auto;
-
-    a:focus-visible{
-        //outline: none;
-    }
-
-    // @include tablet{
-    //     min-width: 1200px;
-    //     padding: 0 60px;
-    // }
 
     .logo {
         height: 50px;
