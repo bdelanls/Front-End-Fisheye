@@ -62,11 +62,11 @@ export async function dataStorage() {
 
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographers");
-	photographers.forEach( async photographer => {
+	photographers.forEach( photographer => {
 		
 		const photographerModel = photographerTemplate(photographer);
 		const userCardDOM = photographerModel.getUserCardDOM();
-		await photographersSection.appendChild(userCardDOM);
+		photographersSection.appendChild(userCardDOM);
 		
 	});
 }
