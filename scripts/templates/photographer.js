@@ -3,7 +3,7 @@ export function photographerTemplate(data) {
 	
 	const { name, id, city, country, tagline, price, portrait } = data;
 
-	const picture = `./assets/images/photographers/${portrait}`;
+	const picture = `/assets/images/photographers/${portrait}`;
 
 	/**
 	* Création de la carte du photographe pour la page d'accueil
