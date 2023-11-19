@@ -3,7 +3,7 @@ export function photographerTemplate(data) {
 	
 	const { name, id, city, country, tagline, price, portrait } = data;
 
-	const picture = `/assets/images/photographers/${portrait}`;
+	const picture = `./assets/images/photographers/${portrait}`;
 
 	/**
 	* Création de la carte du photographe pour la page d'accueil
@@ -15,7 +15,7 @@ export function photographerTemplate(data) {
 		article.classList = "photographer";
 
 		let articleHTML = `
-			<a href="/photographer.html?id=${id}" class="photographer__identity">
+			<a href="photographer.html?id=${id}" class="photographer__identity">
 				<img src="${picture}" alt="Photo de ${name}" class="photographer__identity--picture">
 				<h2 class="photographer__identity--name">${name}</h2>
 			</a>

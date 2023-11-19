@@ -1,11 +1,15 @@
-import { photographerTemplate } from "../templates/photographer.js";
+<<<<<<< HEAD
+import { photographerTemplate } from "./../templates/photographer.js";
+=======
+import { photographerTemplate } from "/scripts/templates/photographer.js";
+>>>>>>> parent of 1ede81b... monidification liens JS et Font
 
 
 /**
 * Lecture du fichier JSON et retourne les données
 */
 async function getJson() {
-	return fetch("/data/photographers.json")
+	return fetch("./data/photographers.json")
 		.then((result) => (result.ok ? result.json() : null))
 		.then((data) => {
 			if (!data) {

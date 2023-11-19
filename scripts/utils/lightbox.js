@@ -1,5 +1,5 @@
-import { mediaList } from "../pages/photographer.js";
-import { applyBlurFilterToBackground, removeBlurFilterFromBackground } from "../utils/utils.js";
+import { mediaList } from "/scripts/pages/photographer.js";
+import { applyBlurFilterToBackground, removeBlurFilterFromBackground } from "/scripts/utils/utils.js";
 
 /**
  * Affiche la modale lightbox avec le média correspondant à l'ID fourni.
@@ -182,7 +182,7 @@ function updateDisplayLightbox(media, firstName) {
 		mediaHTML = `
 		<div class="img-loader">Chargement</div>
 		<img src="/assets/images/photos/${firstName}/${media.image}" alt="${media.title}" class="lightbox__figure--picture">
-        <figcaption id="lightboxTitle" class="lightbox__figure--legend">${media.title}</figcaption>
+        <figcaption class="lightbox__figure--legend">${media.title}</figcaption>
 		`;
 
 		figureDOM.innerHTML = mediaHTML;
@@ -202,7 +202,7 @@ function updateDisplayLightbox(media, firstName) {
 	} else {
 		mediaHTML = `
 		<video controls src="/assets/images/photos/${firstName}/${media.video}" type="vido/mp4"  title="${media.title}" class="lightbox__figure--picture" /></video>
-        <figcaption id="lightboxTitle" class="lightbox__figure--legend">${media.title}</figcaption>
+        <figcaption class="lightbox__figure--legend">${media.title}</figcaption>
 		`;	
 		
 		figureDOM.innerHTML = mediaHTML;

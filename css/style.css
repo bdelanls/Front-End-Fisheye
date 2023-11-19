@@ -58,7 +58,7 @@ table {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 300;
-  src: url("../assets/fonts/dm-sans-v14-latin-300.woff2") format("woff2");
+  src: url("/assets/fonts/dm-sans-v14-latin-300.woff2") format("woff2");
 }
 /* dm-sans-regular - latin */
 @font-face {
@@ -66,7 +66,7 @@ table {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/dm-sans-v14-latin-regular.woff2") format("woff2");
+  src: url("/assets/fonts/dm-sans-v14-latin-regular.woff2") format("woff2");
 }
 /* dm-sans-700 (bold) - latin */
 @font-face {
@@ -74,7 +74,7 @@ table {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 700;
-  src: url("../assets/fonts/dm-sans-v14-latin-700.woff2") format("woff2");
+  src: url("/assets/fonts/dm-sans-v14-latin-700.woff2") format("woff2");
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -155,11 +155,11 @@ main {
   opacity: 0;
 }
 .btn__like::after {
-  background-image: url("/assets/images/icons/heart-solid.svg");
+  background-image: url("../assets/images/icons/heart-solid.svg");
   opacity: 0;
 }
 .btn__like::before {
-  background-image: url("/assets/images/icons/heart-regular.svg");
+  background-image: url("../assets/images/icons/heart-regular.svg");
   opacity: 1;
 }
 .btn__like:hover::after {
@@ -174,7 +174,7 @@ main {
   opacity: 1;
 }
 .btn__like--on::after {
-  background-image: url("/assets/images/icons/heart-solid.svg");
+  background-image: url("../assets/images/icons/heart-solid.svg");
   opacity: 1;
 }
 
@@ -404,7 +404,7 @@ main {
 }
 .sort-menu--selected::after {
   content: "";
-  background-image: url("/assets/images/icons/chevron-down-solid.svg");
+  background-image: url("../assets/images/icons/chevron-down-solid.svg");
   width: 1em;
   height: 1em;
 }
@@ -460,7 +460,7 @@ main {
 }
 .sort-menu--items li.chevron::after {
   content: "";
-  background-image: url("/assets/images/icons/chevron-up-solid.svg");
+  background-image: url("../assets/images/icons/chevron-up-solid.svg");
   width: 1em;
   height: 1em;
 }

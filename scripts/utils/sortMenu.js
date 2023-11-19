@@ -1,3 +1,5 @@
+//import { medialist as displayAfterSort } from "/scripts/pages/photographer.js";
+
 
 export function sortMenu(mediaList) {
 

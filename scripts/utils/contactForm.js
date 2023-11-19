@@ -1,4 +1,4 @@
-import { applyBlurFilterToBackground, removeBlurFilterFromBackground } from "../utils/utils.js";
+import { applyBlurFilterToBackground, removeBlurFilterFromBackground } from "/scripts/utils/utils.js";
 
 const contactModal = document.getElementById("contact-modal");
 

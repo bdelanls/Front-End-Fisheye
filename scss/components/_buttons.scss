@@ -51,12 +51,12 @@
     }
 
     &::after {
-        background-image: url("/assets/images/icons/heart-solid.svg");
+        background-image: url("../assets/images/icons/heart-solid.svg");
         opacity: 0;
     }
 
     &::before {
-        background-image: url("/assets/images/icons/heart-regular.svg");
+        background-image: url("../assets/images/icons/heart-regular.svg");
         opacity: 1;
     }
 
@@ -78,7 +78,7 @@
     &--on {
 
         &::after {
-            background-image: url("/assets/images/icons/heart-solid.svg");
+            background-image: url("../assets/images/icons/heart-solid.svg");
             opacity: 1;
         }
     }

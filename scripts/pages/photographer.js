@@ -1,10 +1,20 @@
-import { dataStorage } from "../pages/index.js";
-import { sortMenu } from "../utils/sortMenu.js";
-import { photographerTemplate } from "../templates/photographer.js";
-import { MediaFactory } from "../components/mediaFactory.js";
-import { StickyCard } from "../components/stickyCard.js";
-import { SortMedia } from "../components/sortMedia.js";
-import { displayContactForm } from "../utils/contactForm.js";
+<<<<<<< HEAD
+import { dataStorage } from "./index.js";
+import { sortMenu } from "./../utils/sortMenu.js";
+import { photographerTemplate } from "./../templates/photographer.js";
+import { MediaFactory } from "./../components/mediaFactory.js";
+import { StickyCard } from "./../components/stickyCard.js";
+import { SortMedia } from "./../components/sortMedia.js";
+import { displayContactForm } from "./../utils/contactForm.js";
+=======
+import { dataStorage } from "/scripts/pages/index.js";
+import { sortMenu } from "/scripts/utils/sortMenu.js";
+import { photographerTemplate } from "/scripts/templates/photographer.js";
+import { MediaFactory } from "/scripts/components/mediaFactory.js";
+import { StickyCard } from "/scripts/components/stickyCard.js";
+import { SortMedia } from "/scripts/components/sortMedia.js";
+import { displayContactForm } from "/scripts/utils/contactForm.js";
+>>>>>>> parent of 1ede81b... monidification liens JS et Font
 
 
 
