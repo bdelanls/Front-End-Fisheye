@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { photographerTemplate } from "./../templates/photographer.js";
-=======
-import { photographerTemplate } from "/scripts/templates/photographer.js";
->>>>>>> parent of 1ede81b... monidification liens JS et Font
 
 
 /**

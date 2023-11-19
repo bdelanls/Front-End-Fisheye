@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 35e3f0f3f3b6808009dd9d9c7097d7c8afb2e946
 import { dataStorage } from "./index.js";
 import { sortMenu } from "./../utils/sortMenu.js";
 import { photographerTemplate } from "./../templates/photographer.js";
@@ -6,6 +9,7 @@ import { MediaFactory } from "./../components/mediaFactory.js";
 import { StickyCard } from "./../components/stickyCard.js";
 import { SortMedia } from "./../components/sortMedia.js";
 import { displayContactForm } from "./../utils/contactForm.js";
+<<<<<<< HEAD
 =======
 import { dataStorage } from "/scripts/pages/index.js";
 import { sortMenu } from "/scripts/utils/sortMenu.js";
@@ -15,6 +19,8 @@ import { StickyCard } from "/scripts/components/stickyCard.js";
 import { SortMedia } from "/scripts/components/sortMedia.js";
 import { displayContactForm } from "/scripts/utils/contactForm.js";
 >>>>>>> parent of 1ede81b... monidification liens JS et Font
+=======
+>>>>>>> 35e3f0f3f3b6808009dd9d9c7097d7c8afb2e946
 
 
 
