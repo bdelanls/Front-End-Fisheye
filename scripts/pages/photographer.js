@@ -13,10 +13,10 @@ export const mediaList = new SortMedia();
 export const stickyCard = new StickyCard();
 
 /**
- * Transforme une liste de médias en objets médias et configure la liste
- *
- * @param {Array} medias - La liste des médias à transformer en objets médias
- * @param {string} photographerName - Le nom du photographe lié à ces médias
+ * Crée un objet Media ou Video en fonction du type de média et l'ajoute à la liste des médias.
+ * 
+ * @param {Array} medias - La liste des données des médias.
+ * @param {string} photographerName - Le nom du photographe associé aux médias.
  */
 async function createCardMedia(medias, photographerName) {
 
@@ -47,7 +47,7 @@ async function createCardMedia(medias, photographerName) {
 
 
 /**
- * Affiche la carte "Sticky" avec le prix et le nombre total de likes.
+ * Affiche une carte "Sticky" qui affiche le nombre total de likes et le TJM du photographe.
  */
 async function displayStickyCard(medias, price) {
 
@@ -73,14 +73,20 @@ export function displayMedia(mediaList) {
 	mediaSection.innerHTML = "";
 
 	for(let i=0; i < mediaList.length; i++) {
-		const mediaCard = mediaList[i].getPhotoCard();
+		let mediaCard;
+		if (mediaList[i].image) {
+			mediaCard = mediaList[i].getPhotoCard();
+		} else {
+			mediaCard = mediaList[i].getVideoCard();
+		}
+		
 		mediaSection.appendChild(mediaCard);
 	}
 }
 
 
 /**
-* Affiche les informations sur le photographe dans photographer-header
+* Affiche les informations sur le photographe dans le header de la page
 */
 async function displayPhotographer(photographer) {
 
@@ -98,6 +104,13 @@ async function displayPhotographer(photographer) {
 }
 
 
+/**
+ * Récupère les informations d'un photographe par son ID.
+ * 
+ * @param {number} photographerID - L'ID du photographe à trouver.
+ * @param {Array} photographersData - La liste des données de tous les photographes.
+ * @returns {Object} Les données du photographe trouvé.
+ */
 async function getPhotographerByID(photographerID, photographersData) {
 	
 	const photographerToFind = photographersData.find(photographe => photographe.id === photographerID);
@@ -111,6 +124,9 @@ async function getPhotographerByID(photographerID, photographersData) {
 }
 
 
+/**
+ * Extrait l'ID du photographe à partir de l'URL actuelle.
+ */
 async function getID(currentURL) {
 	const urlParams = new URL(currentURL);
 	return parseInt(urlParams.searchParams.get("id"));

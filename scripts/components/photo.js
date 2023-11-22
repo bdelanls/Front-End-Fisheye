@@ -1,11 +1,25 @@
 import { Media } from "./media.js";
 
+/**
+ * Représente une photo associée à un photographe, étend la classe Media.
+ */
 export class Photo extends Media {
+	
+	/**
+     * Crée une instance de Photo.
+     * 
+     * @param {Object} data - Les données de la photo.
+     * @param {string} photographerFirstName - Le prénom du photographe associé à la photo.
+     */
 	constructor (data, photographerFirstName) {
 		super (data, photographerFirstName);
 		this.image = data.image;
 	}
 
+	/**
+     * Crée une carte photo HTML en utilisant les propriétés de l'instance 
+	 * et la méthode getMediaCard de la classe parente.
+     */
 	getPhotoCard() {
 
 		const article = document.createElement( "article" );

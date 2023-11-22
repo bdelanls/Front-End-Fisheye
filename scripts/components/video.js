@@ -1,12 +1,26 @@
 import { Media } from "/scripts/components/media.js";
 
+/**
+ * Représente une vidéo associée à un photographe, étend la classe Media.
+ */
 export class Video extends Media {
+	
+	/**
+     * Crée une instance de Video.
+     * 
+     * @param {Object} data - Les données de la vidéo.
+     * @param {string} photographerFirstName - Le prénom du photographe associé à la vidéo.
+     */
 	constructor (data, photographerFirstName) {
 		super (data, photographerFirstName);
 		this.video = data.video;
 	}
 
-	getPhotoCard() {
+	/**
+     * Crée une carte vidéo HTML en utilisant les propriétés de l'instance 
+	 * et la méthode getMediaCard de la classe parente.
+     */
+	getVideoCard() {
 
 		const article = document.createElement( "article" );
 		article.classList = "media-card";

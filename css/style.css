@@ -346,14 +346,6 @@ main {
   margin-bottom: 15px;
   position: relative;
 }
-.contact__form--data::after {
-  content: attr(data-error);
-  color: #901C1C;
-  position: absolute;
-  bottom: -20px;
-  right: 0;
-  font-size: 1em;
-}
 .contact__form--input {
   color: #000000;
   padding: 8px;
@@ -362,6 +354,22 @@ main {
 }
 .contact__form--input:focus-visible {
   outline: 3px solid #901C1C;
+}
+.contact__form--hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.contact__form--error {
+  color: #901C1C;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 1em;
+  display: none;
 }
 .contact__form--submit {
   margin: 20px 0 0 0;

@@ -1,7 +1,16 @@
 import { displayLightbox } from "/scripts/utils/lightbox.js";
 import { stickyCard } from "/scripts/pages/photographer.js";
 
+/**
+ * Représente un média associé à un photographe.
+ */
 export class Media {
+	/**
+     * Crée une instance de Media.
+     * 
+     * @param {Object} data - Les données du média.
+     * @param {string} photographerFirstName - Le prénom du photographe associé au média.
+     */
 	constructor (data, photographerFirstName) {
 		this.id = data.id;
 		this.photographerId = data.photographerId;
@@ -16,13 +25,16 @@ export class Media {
 	}
 
 
+	/**
+     * Crée une carte de média HTML et ajoute des gestionnaires d'événements pour les interactions.
+     */
 	getMediaCard(htmlContent) {
 		const article = document.createElement( "article" );
 		article.classList = "media-card";
 	
 		article.innerHTML = htmlContent;
 	
-		// likes
+		// Gestion des likes
 		const likeButton = article.querySelector(".btn__like");
 		const likeNumber = article.querySelector(".number__like");
 
@@ -44,7 +56,7 @@ export class Media {
 
 		});
 
-		// lightbox
+		// Gestion de la lightbox
 		const lightboxButton = article.querySelector(".media-card__link");
 		lightboxButton.addEventListener("click", () => {
 			displayLightbox(this.id, this.firstName);

@@ -1,20 +1,24 @@
 
+/**
+ * Configure le menu de tri pour la liste des médias et gère ses interactions.
+ */
 export function sortMenu(mediaList) {
 
 	const selectedItem = document.querySelector(".sort-menu--selected");
 	const menuItems = document.querySelector(".sort-menu--items");
 
-	//popularity - date - title
+	// Initialisation des valeurs pour le tri
 	let dataValue = "popularity";
 	let textValue = "Popularité";
 	let topMenuItems = 0;
 
-	// écouteur sur le bouton
+	// Écouteur d'événement sur le bouton de sélection du tri
 	selectedItem.addEventListener("click", event => {
 		event.stopPropagation();
 		toggleMenu();
 	});
 
+	// Met à jour l'attribut aria-selected pour les options du menu
 	function updateAriaSelected(selectedDataValue) {
 		menuItems.querySelectorAll("li").forEach(item => {
 			// Vérifiez si l'élément courant a le même data-value que celui sélectionné
@@ -35,6 +39,7 @@ export function sortMenu(mediaList) {
 		}
 	});
 
+	// Gère les interactions avec les éléments du menu
 	function handleMenuInteraction(event) {
 
 		let target = event.target;
@@ -57,7 +62,7 @@ export function sortMenu(mediaList) {
 	});
 
 
-
+	// Gère l'ouverture et la fermeture du menu
 	function toggleMenu() {
 		if (menuItems.style.display === "block") {
 			closeMenu();
@@ -66,6 +71,7 @@ export function sortMenu(mediaList) {
 		}
 	}
 
+	// Ouvre le menu et ajuste le positionnement
 	function openMenu() {
 
 		if (dataValue === "date") {
@@ -99,7 +105,7 @@ export function sortMenu(mediaList) {
 	}
 
 
-	// met à jour le texte du bouton et l'affichage des médias
+	// Met à jour le bouton sélectionné et trie la liste des médias
 	function selectItem(dataValue, textValue) {
 		selectedItem.textContent = textValue;
 		toggleMenu();
@@ -107,9 +113,7 @@ export function sortMenu(mediaList) {
 		mediaList.getListMedia(dataValue);
 	}
 
-	/**
-	 * 
-	 */
+	// Gère les événements de navigation au clavier dans le menu
 	menuItems.addEventListener("keydown", event => {
 		let currentFocus = document.activeElement;
 
@@ -126,6 +130,7 @@ export function sortMenu(mediaList) {
 		}
 	});
 
+	// Ferme le menu si Tab est pressé sur le dernier élément
 	const lastMenuItem = menuItems.lastElementChild;
 	lastMenuItem.addEventListener("keydown", function (event) {
 		if (event.key === "Tab" && !event.shiftKey) {

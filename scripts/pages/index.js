@@ -18,7 +18,7 @@ async function getJson() {
 
 
 /**
-* Affiche une erreur à l'utilisateur.
+* Affiche un message d'erreur à l'utilisateur en cas d'échec du chargement des données.
 * @param error 
 */
 function showError(error) {
@@ -30,8 +30,9 @@ function showError(error) {
 
 
 /**
-* Stockage des données dans le sessionStorage
-*/
+ * Stocke les données des photographes et des médias dans le sessionStorage pour un accès rapide.
+ * Si les données ne sont pas déjà stockées, elles sont chargées depuis un fichier JSON.
+ */
 export async function dataStorage() {
 
 	try {
@@ -59,7 +60,11 @@ export async function dataStorage() {
 
 
 
-
+/**
+ * Affiche les données des photographes sur la page d'accueil.
+ * 
+ * @param {Array<Object>} photographers - Les données des photographes à afficher.
+ */
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographers");
 	photographers.forEach( photographer => {
@@ -72,7 +77,9 @@ async function displayData(photographers) {
 }
 
 
-  
+/**
+ * Initialise la page d'accueil en chargeant les données des photographes et en les affichant.
+ */  
 export async function initHomePage() {
 
 	// Lecture du fichier JSON si besoin
@@ -80,8 +87,6 @@ export async function initHomePage() {
 
 	// Récupération des données de sessionStorage
 	const photographersData = JSON.parse(sessionStorage.getItem("photographers"));
-
-	//console.log("data index =", photographers);
   
 	displayData(photographersData);
 }

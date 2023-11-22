@@ -60,8 +60,6 @@ function parseDate(dateString) {
 		const day = parseInt(parts[2], 10);
 		const parsedDate = new Date(year, month, day);
 
-		// console.log(dateString + " => " + parsedDate);
-
 		if (!isNaN(parsedDate.getTime())) {
 			return parsedDate;
 		}

@@ -1,9 +1,22 @@
+/**
+ * Représente un composant d'interface utilisateur "sticky card" 
+ * qui affiche les likes et le prix.
+ */
 export class StickyCard {
+	
+	/**
+     * Crée une instance de StickyCard.
+     * 
+     * @param {number} price - Le prix à afficher sur la carte. Valeur par défaut à 0.
+     */
 	constructor (price = 0) {
 		this.likes = 0;
 		this.price = price;
 	}
 
+	/**
+     * Met à jour le nombre de likes sur la sticky card.
+     */
 	updateLikes(ope) {
 
 		const stickyCardDOM = document.querySelector(".sticky-card__like--number");
@@ -20,6 +33,9 @@ export class StickyCard {
 
 	}
 
+	/**
+     * Génère et affiche le HTML pour la sticky card dans le DOM.
+     */
 	getStickyCard() {
 
 		const stickyDOM = document.querySelector(".sticky-card");

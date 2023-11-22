@@ -66,7 +66,14 @@ export function displayLightbox(id, firstName) {
 	 * Flèche droite => média suivant
 	 * Espace => lecture de la vidéo
 	 */
-	lightboxModal.addEventListener("keydown", function(event) {
+	lightboxModal.addEventListener("keydown", handleKeydownEvent);
+
+	/**
+     * Gère les événements de frappe au clavier dans la lightbox.
+     *
+     * @param {KeyboardEvent} event - L'événement du clavier à traiter.
+     */
+	function handleKeydownEvent(event) {
 
 		switch (event.key) {
 		case "Escape":
@@ -82,9 +89,13 @@ export function displayLightbox(id, firstName) {
 			playVideo();
 			break;
 		}
+	}
 
-	});
 
+	/**
+     * Joue ou met en pause la vidéo affichée dans la lightbox, 
+	 * si le média courant est une vidéo.
+     */
 	function playVideo() {
 		if (media.video) {
 			let video = document.querySelector(".lightbox__figure--picture");
@@ -100,9 +111,7 @@ export function displayLightbox(id, firstName) {
 	 * les styles pour la masquer.
 	 */
 	const closeBtn = document.querySelector(".lightbox__btn--close");
-	closeBtn.addEventListener("click", () => {
-		closeLightboxModal();
-	});
+	closeBtn.addEventListener("click", closeLightboxModal);
 
 
 	function closeLightboxModal() {
@@ -121,6 +130,13 @@ export function displayLightbox(id, firstName) {
 		
 		// Supprime le flou à l'arrère plan
 		removeBlurFilterFromBackground();
+
+		// Supprime les écouteurs de la lightbox
+		closeBtn.removeEventListener("click", closeLightboxModal);
+		backBtn.removeEventListener("click", goToPreviousMedia);
+		nextBtn.removeEventListener("click", goToTheNextMedia);
+		lightboxModal.removeEventListener("keydown", handleKeydownEvent);
+
 	}
 
 
@@ -129,9 +145,7 @@ export function displayLightbox(id, firstName) {
 	 * Cela met à jour l'affichage de la modale en passant au média précédent dans la liste.
 	 */
 	const backBtn = document.querySelector(".lightbox__btn--back");
-	backBtn.addEventListener("click", () => {
-		goToPreviousMedia();
-	});
+	backBtn.addEventListener("click", goToPreviousMedia);
 
 	function goToPreviousMedia() {
 		if (mediaIndex > 0) {
@@ -148,9 +162,7 @@ export function displayLightbox(id, firstName) {
 	 * Cela met à jour l'affichage de la modale en passant au média suivant dans la liste.
 	 */
 	const nextBtn = document.querySelector(".lightbox__btn--next");
-	nextBtn.addEventListener("click", () => {
-		goToTheNextMedia();
-	});
+	nextBtn.addEventListener("click", goToTheNextMedia);
 
 	function goToTheNextMedia() {
 		if (mediaIndex < mediaList.mediaList.length - 1) {
@@ -182,7 +194,7 @@ function updateDisplayLightbox(media, firstName) {
 		mediaHTML = `
 		<div class="img-loader">Chargement</div>
 		<img src="/assets/images/photos/${firstName}/${media.image}" alt="${media.title}" class="lightbox__figure--picture">
-        <figcaption class="lightbox__figure--legend">${media.title}</figcaption>
+        <figcaption id="lightboxTitle" class="lightbox__figure--legend">${media.title}</figcaption>
 		`;
 
 		figureDOM.innerHTML = mediaHTML;
@@ -192,7 +204,9 @@ function updateDisplayLightbox(media, firstName) {
 		image.src = `/assets/images/photos/${firstName}/${media.image}`;
 		image.onload = () => {
 			const imgLoader = document.querySelector(".img-loader");
-			imgLoader.style.display = "none";
+			if (imgLoader) {
+				imgLoader.style.display = "none";
+			}
 		};
 		image.onerror = () => {
 			console.log("Problème lors du chargement de l'image");
@@ -202,7 +216,7 @@ function updateDisplayLightbox(media, firstName) {
 	} else {
 		mediaHTML = `
 		<video controls src="/assets/images/photos/${firstName}/${media.video}" type="vido/mp4"  title="${media.title}" class="lightbox__figure--picture" /></video>
-        <figcaption class="lightbox__figure--legend">${media.title}</figcaption>
+        <figcaption id="lightboxTitle" class="lightbox__figure--legend">${media.title}</figcaption>
 		`;	
 		
 		figureDOM.innerHTML = mediaHTML;

@@ -1,4 +1,7 @@
 
+/**
+ * Fournit les templates pour les cartes et l'en-tête des photographes.
+ */
 export function photographerTemplate(data) {
 	
 	const { name, id, city, country, tagline, price, portrait } = data;
@@ -7,15 +10,13 @@ export function photographerTemplate(data) {
 
 	/**
 	* Création de la carte du photographe pour la page d'accueil
-	* 
-	* @return du code HTML
 	*/
 	function getUserCardDOM() {
 		const article = document.createElement( "article" );
 		article.classList = "photographer";
 
 		let articleHTML = `
-			<a href="photographer.html?id=${id}" class="photographer__identity">
+			<a href="photographer.html?id=${id}" class="photographer__identity" aria-label="Page du photographe ${name}">
 				<img src="${picture}" alt="Photo de ${name}" class="photographer__identity--picture">
 				<h2 class="photographer__identity--name">${name}</h2>
 			</a>
@@ -28,6 +29,9 @@ export function photographerTemplate(data) {
 		
 	}
 
+	/**
+     * Crée l'en-tête pour la page photographe.
+     */
 	function getPhotographerHeader() {
 
 		let photographerHeaderHTML = `

@@ -3,6 +3,11 @@ import { applyBlurFilterToBackground, removeBlurFilterFromBackground } from "/sc
 const contactModal = document.getElementById("contact-modal");
 
 
+/**
+ * Affiche le formulaire de contact et gère son interaction.
+ * 
+ * @param {string} name - Le nom du photographe pour lequel afficher le formulaire de contact.
+ */
 export function displayContactForm(name) {
 
 	// le media qui a le focus dans la galerie 
@@ -37,22 +42,30 @@ export function displayContactForm(name) {
           </button>
         </header>
 			<section class="contact__section">
-				<form name="contact" action="photographer.html" method="get" class="contact__form">
+				<form name="contact" class="contact__form">
 					<div class="contact__form--data">
 						<label for="firstname" class="contact__form--label">Prénom</label>
-						<input id="firstname" class="contact__form--input" type="text" id="firstname" name="firstname" minlength="2" aria-required="true" />
+						<input id="firstname" class="contact__form--input" type="text" name="firstname" minlength="2" required aria-required="true" aria-describedby="firstnameDesc firstnameError" />
+						<div id="firstnameError" class="contact__form--error"></div>
+						<div id="firstnameDesc" class="contact__form--hidden">Entrez votre prénom. Minimum 2 caractères.</div>
 					</div>
 					<div class="contact__form--data">
 						<label for="lastname" class="contact__form--label">Nom</label>
-						<input id="lastname" class="contact__form--input" type="text" id="lastname" name="lastname" minlength="2" aria-required="true" />
+						<input id="lastname" class="contact__form--input" type="text" name="lastname" minlength="2" required aria-required="true" aria-describedby="lastnameDesc lastnameError" />
+						<div id="lastnameError" class="contact__form--error"></div>
+						<div id="lastnameDesc" class="contact__form--hidden">Entrez votre nom. Minimum 2 caractères.</div>
 					</div>
 					<div class="contact__form--data">
 						<label for="email" class="contact__form--label">Email</label>
-						<input id="email" class="contact__form--input" type="email" id="email" name="email" aria-required="true" />
+						<input id="email" class="contact__form--input" type="email" name="email" required aria-required="true" aria-describedby="emailDesc emailError" />
+						<div id="emailError" class="contact__form--error"></div>
+						<div id="emailDesc" class="contact__form--hidden">Entrez votre adresse email.</div>
 					</div>
 					<div class="contact__form--data">
 						<label for="message" class="contact__form--label">Votre message</label>
-						<textarea id="message" class="contact__form--input" name="message" id="message" rows="3" aria-required="true"></textarea>
+						<textarea id="message" class="contact__form--input" name="message" rows="3" required aria-required="true" aria-describedby="messageDesc messageError"></textarea>
+						<div id="messageError" class="contact__form--error"></div>
+						<div id="messageDesc" class="contact__form--hidden">Entrez le message que vous souhaitez envoyer.</div>
 					</div>
 					<input class="contact__form--submit" type="submit" value="Envoyer" />
 				</form>
@@ -90,6 +103,9 @@ export function displayContactForm(name) {
 	validateForm(name, focusedElement);
 }
 
+/**
+ * Ferme le formulaire de contact et rétablit l'état initial de la page.
+ */
 function closeModalContact(focusedElement) {
 	contactModal.innerHTML = "";
 	contactModal.removeAttribute("style");
@@ -110,6 +126,9 @@ function closeModalContact(focusedElement) {
 
 
 
+/**
+ * Valide les champs du formulaire de contact et affiche les messages d'erreur si nécessaire.
+ */
 function validateForm(name, focusedElement) {
 
 	const btnSubmit = document.querySelector(".contact__form--submit");
@@ -151,10 +170,16 @@ function validateForm(name, focusedElement) {
 				<button class="contact__msg--btn">Fermer</button>
 			</div>`;
 
+			const closeModalBtn = document.querySelector(".contact__msg--btn");
+			closeModalBtn.addEventListener("click", () => closeModalContact(focusedElement) );
+
+		} else {
+			
+			const firstInvalidField = document.querySelector("input[aria-invalid]");
+			firstInvalidField.focus();
 		}
 		
-		const closeModalBtn = document.querySelector(".contact__msg--btn");
-		closeModalBtn.addEventListener("click", () => closeModalContact(focusedElement) );
+		
 
 	});
 
@@ -207,15 +232,22 @@ function validateForm(name, focusedElement) {
 	
 
 	function displayError(input, message){
-		console.log("input", input);
-		console.log("message", message);
-		input.parentNode.setAttribute("data-error", message);
-		//input.parentNode.setAttribute("data-error-visible", "true");
+
+		const inputError = input.nextElementSibling;
+		inputError.textContent = message;
+		inputError.style = "display: block";
+
+		input.setAttribute("aria-invalid", "true");
 		validForm = false;
 	}
 
 	function eraseError(input){
-		input.parentNode.removeAttribute("data-error");
+
+		const inputError = input.nextElementSibling;
+		inputError.textContent = "";
+		inputError.style = "";
+
+		input.removeAttribute("aria-invalid");
 		input.parentNode.removeAttribute("data-error-visible");
 	}
 
