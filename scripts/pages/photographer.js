@@ -72,15 +72,19 @@ export function displayMedia(mediaList) {
 	const mediaSection = document.querySelector(".section-media-cards");
 	mediaSection.innerHTML = "";
 
-	for(let i=0; i < mediaList.length; i++) {
-		let mediaCard;
-		if (mediaList[i].image) {
-			mediaCard = mediaList[i].getPhotoCard();
-		} else {
-			mediaCard = mediaList[i].getVideoCard();
-		}
+	// for(let i=0; i < mediaList.length; i++) {
+	// 	let mediaCard;
+	// 	if (mediaList[i].image) {
+	// 		mediaCard = mediaList[i].getPhotoCard();
+	// 	} else {
+	// 		mediaCard = mediaList[i].getVideoCard();
+	// 	}
 		
-		mediaSection.appendChild(mediaCard);
+	// 	mediaSection.appendChild(mediaCard);
+	// }
+
+	for(let media of mediaList) {
+		media.image ? mediaSection.appendChild(media.getPhotoCard()) : mediaSection.appendChild(media.getVideoCard());
 	}
 }
 
