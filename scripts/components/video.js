@@ -29,7 +29,7 @@ export class Video extends Media {
 
 		let videoCardHTML = `
         <div class="media-card__link" tabindex="0" role="button">
-            <video src="/assets/images/photos/${this.firstName}/${this.video}" alt="${this.title}" aria-label="${this.title}" class="media-card__media"></video>
+            <video src="/assets/images/photos/${this.firstName}/${this.video}" title="${this.title}" aria-label="Ouvrir la vidéo ${this.title}" class="media-card__media"></video>
         </div>
         <div class="media-card__legend">
         	<h3 class="media-card__legend--title">${this.title}</h3>
